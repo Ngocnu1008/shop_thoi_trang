@@ -8,21 +8,25 @@ const Wrap = styled.div`
     text-align: center;
     margin-top: 3%;
     input{
-        width: 40%;
+        width: 40   %;
         padding: 0.5rem;
+        border-radius: 5px;
     }
     button {
-        color: black;
+        color: white;
+        background: black;
         cursor: pointer;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.8rem;
         margin-top: 1%;
+        border-radius: 5px;
     }
+    color: ${props => props.theme.color};
 `;
 const ImgDownload = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     img {
-        width: 45%;
+        width: 40%;
     }
 `;
 const Info = styled.div`
@@ -37,7 +41,7 @@ const Info = styled.div`
             }
             list-style: none;
             font-weight: bold;
-            border-left: 1px solid black;
+            border-left: 1px solid #d5cccc;
             padding: 5px 5px;
             cursor: pointer;
             i {

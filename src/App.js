@@ -9,24 +9,28 @@ import "./App.css";
 import Women from "./pages/Women";
 import Toggle from "./components/general/Toggle";
 const Wrap = styled.div`
+  background: ${props => props.theme.bg_body};
 `
+const Content = styled.div`
+  padding-top: 3%;
+`;
 function App() {
   const [theme, setTheme] = useState(true);
-  console.log(Theme);
   return (
    <Router>
-     <ThemeProvider theme={Theme ? Theme.light : Theme.dark}>
+     <ThemeProvider theme={theme ? Theme.light : Theme.dark}> 
+     {/* ? : đgl toán tử 3 ngôi. 
+     Nếu theme ban đầu đúng thì sẽ lấy cái sau dấu ? còn không thì lấy sau :, mà ban đầu set useState là đúng */ }
      <Switch>
         <Wrap className="App">
           <Navbar/>
-
-          <Route path="/" exact>
-              <Home/>
-          </Route>]
-          <Route path="/hang-nu">
-            <Women/>
-          </Route>
-
+            <Content/>
+              <Route path="/" exact>
+                <Home/>
+              </Route>]
+              <Route path="/hang-nu/:type">
+                <Women/>
+              </Route>
           <Toggle setTheme={setTheme} theme={theme}/>
           <Footer/>
         </Wrap>

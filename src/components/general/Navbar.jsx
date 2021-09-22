@@ -1,9 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Container = styled.div`
     background: ${props => props.theme.bg};
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 1px 3px 5px 0px rgb(0 0 0 / 10%);
 `;
 const Content = styled.div`
     width: 95%;
@@ -14,6 +21,7 @@ const Content = styled.div`
         width: 10%;
         img {
             width: 100%;
+            cursor: pointer;
         }
     }
     ul {
@@ -23,6 +31,7 @@ const Content = styled.div`
             color: ${props => props.theme.color};
             text-decoration: none;
         }
+        font-weight: 500;
         li {
             list-style: none;
             text-transform: uppercase;
@@ -41,7 +50,7 @@ const Content = styled.div`
         box-sizing: border-box;
         li {
             margin: 0;
-            padding: 0.3rem 0.5rem;
+            padding: 0rem 0.5rem;
             border-right: 1px solid gray;
             input {
                 border: none;
@@ -77,11 +86,11 @@ function Navbar () {
             <Container>
                 <Content>
                     <div className="logo">
-                        <img src="https://pubcdn.ivymoda.com/images/logo.png" alt=""/>                    
+                        <Link to="/"><img src="https://pubcdn.ivymoda.com/images/logo.png" alt=""/> </Link>                   
                     </div>
                     <div className="navigation">
                         <ul>
-                            <NavLink to="/hang-nu"><li>Nữ</li></NavLink>
+                            <NavLink to="/hang-nu/news"><li>Nữ</li></NavLink>
                             <NavLink to="/hang-nam"><li>Nam</li></NavLink>
                             <NavLink to="/tre-em"><li>Trẻ em</li></NavLink>
                             <NavLink to="/sale"><li>Final sale</li></NavLink>
