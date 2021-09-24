@@ -4,9 +4,13 @@ import styled from 'styled-components';
 const Wrap = styled.div`
     margin-top: 5%;
     width: 20%;
-    height: 100vh;
-    position: fixed;
+    box-sizing: border-box;
+    background: blue;
+    text-align: center;
     color: ${props => props.theme.color};
+    ul {
+        width: 100%;
+    }
     li {
         list-style: none;
         cursor: pointer;

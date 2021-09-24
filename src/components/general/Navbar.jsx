@@ -38,7 +38,7 @@ const Content = styled.div`
             margin: 0 1.5rem;
             cursor: pointer;
             &:hover {
-                color: ${props => props.theme.hover};
+                color: gray;
             }
         }
     }

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { Redirect } from "react-router";
 import styled from "styled-components";
 
-
+const Container = styled.div`
+    width: 100%;   
+    border: 1px solid black;
+    margin: 20px 0px 70px 0px;
+`;
 const Wrap = styled.div`
     width: 40%;
     margin: auto;
@@ -11,6 +16,7 @@ const Wrap = styled.div`
         width: 40   %;
         padding: 0.5rem;
         border-radius: 5px;
+        margin: 20px 0px 10px 0px;
     }
     button {
         color: white;
@@ -18,6 +24,7 @@ const Wrap = styled.div`
         cursor: pointer;
         padding: 0.5rem 0.8rem;
         margin-top: 1%;
+        margin-bottom: 7%;
         border-radius: 5px;
     }
     color: ${props => props.theme.color};
@@ -25,12 +32,14 @@ const Wrap = styled.div`
 const ImgDownload = styled.div`
     display: flex;
     justify-content: space-around;
+    margin: 20px 0px;
     img {
-        width: 40%;
+        width: 35%;
     }
 `;
 const Info = styled.div`
     ul {
+        margin-bottom: 2%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -67,11 +76,27 @@ const License = styled.div`
     width: 100%;
     text-align: center;
     background: #f8f8f8;
-    padding: 10px 0;
+    padding: 20px 0;
 `;
 const Footer = () => {
+    const [text, setText] = useState("");
+    const handleGetValue = (e) => {
+        setText(e.target.value);
+    }
+    const [send, setSend] = useState(false);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (text !== ""){
+            setSend(true);
+        }else {
+            alert("Please fill in your email address!")
+        }
+    }
      return (
          <>
+         {send && <Redirect to= "/"/>}
+         <Container>
+         </Container>
          <Wrap>
              <h2>Tải ứng dụng IVY moda</h2>
              <ImgDownload>
@@ -80,9 +105,9 @@ const Footer = () => {
              </ImgDownload>
              <h3>Nhận bản tin IVY moda</h3>
              <form action="">
-                <input type="text" placeholder="Nhập email của bạn..."/>
+                <input type="text" placeholder="Nhập email của bạn..." onChange={handleGetValue} value={text}/>
                 <br/>
-                <button type="submit">SUBMIT</button>
+                <button type="submit" onClick={handleSubmit}>SUBMIT</button>
              </form>
              <Info>
                  <ul>

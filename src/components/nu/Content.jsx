@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {news, shirt} from "../../data/do_nu";
+import {news, shirt, croptop, somi} from "../../data/do_nu";
 
 const Wrap = styled.div`
     margin-left: 20%;
+    max-width: 80%;
 `;
 const General = styled.div` 
     h3{
+        margin-top: 30px;
         text-transform: uppercase;
         font-weight: bold;
     }
     color: ${props => props.theme.color};
     display: flex;
     .options {
+        margin-top: 30px;
         display: flex;
         div{
             display: flex;
@@ -30,13 +33,22 @@ const Products = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     width: 90%;
+    margin-top: 25px;
 `;
 const Card = styled.div`
     width: 23%;
-    margin: 0 0.5%;
+    margin: 1% 0.5%;
     text-align: center;
     img{
         width: 100%;
+    }
+    h3 {
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 5px;
+    }
+    h4 {
+        font-weight: 400;
     }
 `;
 function Content({type}) {
@@ -48,18 +60,26 @@ function Content({type}) {
                 setData(shirt);
                 setTitle("Áo nữ");
                 break;
+            case "croptop":
+                setData(croptop);
+                setTitle("Áo croptop");
+                break;
+            case "somi":
+                setData(somi);
+                setTitle("Áo sơ mi nữ");
+                break;
             default:
                 setData(news);
-                setTitle("Áo nữ mới về");
+                setTitle("hàng nữ mới về");
         }
     },[type]);
 
 
-    const [count, setCount] = useState(0);
+    // const [count, setCount] = useState(0);
 
-    const handleClick = () => {
-        setCount(count + 1);
-    }
+    // const handleClick = () => {
+    //     setCount(count + 1);
+    // }
     return (
         <Wrap>
             <General>
@@ -80,7 +100,7 @@ function Content({type}) {
                     data.map ((value, index) => {
                         return (
                             <Card key={index}>
-                                <img src={`/image/woman/ao/ao_croptop/${value.image}`}/>
+                                <img src={`/image/woman/top_collections/${value.image}`}/>
                                 <h3>{value.name}</h3>
                                 <h4>{value.price}</h4>
                                 <p>_new_</p>
