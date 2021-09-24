@@ -16,4 +16,6 @@ const Banner = () => {
         </Wrap>
     )
 }
-export default Banner;
+export default React.memo(Banner);
+//usememo: sử dụng trong nguyên 1 component.
+//useCallBack: sử dụng trong 1 hàm.
