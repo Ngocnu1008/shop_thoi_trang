@@ -12,17 +12,16 @@ const Wrap = styled.div`
 `
 function App() {
   const [theme, setTheme] = useState(true);
-  console.log(Theme);
   return (
    <Router>
-     <ThemeProvider theme={Theme ? Theme.light : Theme.dark}>
+     <ThemeProvider theme={theme ? Theme.light : Theme.dark}>
      <Switch>
         <Wrap className="App">
           <Navbar/>
 
           <Route path="/" exact>
               <Home/>
-          </Route>]
+          </Route>
           <Route path="/hang-nu">
             <Women/>
           </Route>
