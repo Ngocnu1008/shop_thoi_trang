@@ -13,6 +13,7 @@ const Wrap = styled.div`
 `
 const Content = styled.div`
   padding-top: 3%;
+  box-sizing: border-box;
 `;
 function App() {
   const [theme, setTheme] = useState(true);

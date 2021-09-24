@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import {news, shirt, croptop, somi} from "../../data/do_nu";
 
 const Wrap = styled.div`
-    margin-left: 20%;
     max-width: 80%;
 `;
 const General = styled.div` 
