@@ -9,11 +9,10 @@ const Wrap = styled.div`
 function Women() {
     const [type, setType] = useState("news");
     let params = useParams();
-
     useEffect (() => {
-        setType(params.type);
+        setType(params.type);//params.type thì sau dấu chấm này phải trùng với tên mà đã định nghĩa ở đường dẫn path sau dấu hai chấm! 
+        //lúc này params hiện ra là 1 object gồm phần tử type mà mình định nghĩa nên khi lấy phần tử đó thì là params.type!
     },[params]);
-
     return (
        <Wrap>
            <SideBar/>

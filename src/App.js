@@ -8,6 +8,7 @@ import Footer from "./components/general/footer";
 import "./App.css";
 import Women from "./pages/Women";
 import Toggle from "./components/general/Toggle";
+import Details from "./pages/Details";
 const Wrap = styled.div`
   background: ${props => props.theme.bg_body};
 `
@@ -20,8 +21,6 @@ function App() {
   return (
    <Router>
      <ThemeProvider theme={theme ? Theme.light : Theme.dark}> 
-     {/* ? : đgl toán tử 3 ngôi. 
-     Nếu theme ban đầu đúng thì sẽ lấy cái sau dấu ? còn không thì lấy sau :, mà ban đầu set useState là đúng */ }
      <Switch>
         <Wrap className="App">
           <Navbar/>
@@ -29,10 +28,12 @@ function App() {
               <Route path="/" exact>
                 <Home/>
               </Route>]
-              <Route path="/hang-nu/:type">
+              <Route path="/hang-nu/:type" exact>
                 <Women/>
               </Route>
-          <Toggle setTheme={setTheme} theme={theme}/>
+              <Route path = "/chi-tiet-hang-nu/:type/:id_sanpham" exact>
+                <Details/>
+              </Route>
           <Footer/>
         </Wrap>
      </Switch>

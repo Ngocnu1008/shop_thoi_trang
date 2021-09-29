@@ -5,3 +5,15 @@
 .active{
   color: red!important;
 }
+.active1 {
+  color: black;
+  font-weight: bold;
+  border-bottom: 2px solid black!important; 
+}
+.active2 {
+  background-color: orange!important;
+  color: white;
+}
+table td {
+  border: 1px solid gray;
+}

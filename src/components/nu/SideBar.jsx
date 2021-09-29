@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from "react-router-dom";
 
 const Wrap = styled.div`
     margin-top: 5%;
+    margin-left: 3%;
     width: 20%;
     box-sizing: border-box;
-    background: blue;
-    text-align: center;
     color: ${props => props.theme.color};
     ul {
         width: 100%;
+        a {
+            text-decoration: none;
+            color: black;
+        }
     }
     li {
+        margin-left: 10%;
         list-style: none;
         cursor: pointer;
         padding: 1% 0%;
@@ -24,7 +29,7 @@ const Wrap = styled.div`
             font-weight: normal;
             text-transform: capitalize;
             &:hover {
-                color: black;
+                color: gray;
             }
         }
 
@@ -34,17 +39,18 @@ function SideBar(props) {
     return (
         <Wrap>
             <ul>
-                <li>
-                    Hàng nữ mới về
-                </li>
+                <Link to = "/hang-nu/news">
+                    <li>Hàng nữ mới về</li> 
+                </Link>
                 <li>
                     <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
                     Áo nữ
                     <ul>
-                        <li>Áo kiểu</li>
-                        <li>Áo croptop</li>
-                        <li>Áo vest nữ</li>
-                        <li>Áo sơ mi nữ</li>
+                        <Link to="/hang-nu/shirt"><li>Áo kiểu</li></Link>
+                        {/* sau dấu / thì phải trùng với case của Content thì mới ra */}
+                        <Link to="/hang-nu/croptop"><li>Áo croptop</li></Link>
+                        <Link to="/hang-nu/vest"><li>Áo vest nữ</li></Link>
+                        <Link to="/hang-nu/somi"><li>Áo sơ mi nữ</li></Link>
                     </ul>
                 </li>
                 <li>

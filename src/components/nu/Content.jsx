@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {news, shirt, croptop, somi} from "../../data/do_nu";
+import {Link} from "react-router-dom";
+import {news, shirt, croptop, somi, vest} from "../../data/do_nu";
 
 const Wrap = styled.div`
     max-width: 80%;
@@ -38,6 +39,10 @@ const Card = styled.div`
     width: 23%;
     margin: 1% 0.5%;
     text-align: center;
+    a {
+        text-decoration: none;
+        color: black;
+    }
     img{
         width: 100%;
     }
@@ -66,6 +71,10 @@ function Content({type}) {
             case "somi":
                 setData(somi);
                 setTitle("Áo sơ mi nữ");
+                break;
+            case "vest":
+                setData(vest);
+                setTitle("Áo vest nữ");
                 break;
             default:
                 setData(news);
@@ -100,7 +109,7 @@ function Content({type}) {
                         return (
                             <Card key={index}>
                                 <img src={`/image/woman/top_collections/${value.image}`}/>
-                                <h3>{value.name}</h3>
+                                <Link to={`/chi-tiet-hang-nu/${type}/${value.id}`}><h3>{value.name}</h3></Link>
                                 <h4>{value.price}</h4>
                                 <p>_new_</p>
                             </Card>
