@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Banner from "../components/home/Banner";
 const Wrap = styled.div`
   width: 100%;
+  z-index: 5;
   box-sizing: border-box;
   hr {
     width: 99%;

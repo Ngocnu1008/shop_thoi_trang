@@ -57,18 +57,18 @@ function SideBar(props) {
                     <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
                     Quần nữ
                     <ul>
-                        <li>Quần jean nữ</li>
-                        <li>Quần lửng</li>
-                        <li>Quần dài</li>
+                        <Link to="/hang-nu/jeans"><li>Quần jean nữ</li></Link>
+                        <Link to="/hang-nu/short"><li>Quần lửng</li></Link>
+                        <Link to="/hang-nu/trousers"><li>Quần dài</li></Link>
                     </ul>
                 </li>
                 <li>
                     <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
                     Đầm nữ
                     <ul>
-                        <li>Đầm</li>
-                        <li>Đầm thun</li>
-                        <li>Đầm mexi</li>
+                        <Link to="/hang-nu/dam"><li>Đầm</li></Link>
+                        <Link to="/hang-nu/dam_thun"><li>Đầm thun</li></Link>
+                        <Link to="/hang-nu/dam_mexi"><li>Đầm mexi</li></Link>
                     </ul>
                 </li>
                 <li>

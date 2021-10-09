@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import {Redirect} from "react-router-dom";
+import Swal from "sweetalert2";
 const Wrap = styled.div`
     p {
         margin-top: 15px;
@@ -27,7 +28,7 @@ const Options = styled.div`
 const sizeDefault = [
     "s" , "m", "l", "xl", "xxl"
 ]
-function Info({data}) {
+function Info({data, setCountCart, countCart}) {
     const [size, setSize] = useState("");
     const [count, setCount] = useState(1);
     const [redirect, setRedirect] = useState(false);
@@ -47,23 +48,53 @@ function Info({data}) {
     } 
     const handleAddToCard = () => {
         if (size === "") {
-            alert ("please choose the size");
+            return (alert ("please choose the size"));
         }
-        let confirm = window.confirm("Ban co muon mua mon nay?");
-        if(confirm){
+        let sanpham = JSON.parse(localStorage.getItem("sanpham"));
             let info_product = {
-                id: data.id,
-                image: data.image,
-                price: data.price,
+                id: data[0].id,
+                name: data[0].name,
+                image: data[0].image,
+                price: data[0].price,
                 count: count,
                 size: size,
+            };
+        //mục đích của chỗ này là khi thêm số lượng mà cùng size cùng mẫu thì chỉ cập nhật lại mảng [info_product], còn khi
+        //mẫu và size khác thì push cái info_product mới đó vô. (sanpham.push(info_product));
+        if (sanpham){
+            let check = sanpham.filter(
+                (value) => value.id === info_product.id && value.size === info_product.size);
+                if (check.length > 0){
+                    for (let i = 0; i < sanpham.length; i++){
+                        if (info_product.id === sanpham[i].id && info_product.size === sanpham[i].size){
+                            sanpham[i].count = count + sanpham[i].count;
+                        }
+                    }
+                }else {
+                sanpham.push(info_product);
             }
-            localStorage.setItem("sanpham", info_product);
-            setRedirect(true);
-        }else {
-            return;
+            localStorage.setItem("sanpham", JSON.stringify(sanpham));
+        }else{
+            localStorage.setItem("sanpham", JSON.stringify([info_product]));
         }
-    }
+        Swal.fire({
+            title: "Add to cart?", 
+            text: "successfully",
+            icon: "success",
+            confirmButton: "yes",
+        })
+        .then ((result)=>{
+            if (result.isConfirmed){
+                setRedirect(true);
+                setTimeout(()=>{
+                    setCountCart(countCart + 1);
+                }, 300);
+            }
+        })
+        .catch((error)=>{
+            console.error(error);
+        });
+    };
     return (
        <Wrap>
            {redirect && <Redirect to ="/"/>}
@@ -76,27 +107,26 @@ function Info({data}) {
             <p><strong>Size {size.toUpperCase()}:</strong></p>
                 
             <Options>
-                    <div className="size">
-                        {sizeDefault.map ((value, index) => {
-                            return (
-                                <button onClick = {() => handleChangeSize(value)}
-                                className={size === value ? "active2" : ""} key={index}>
-                                {value.toUpperCase()}
-                                </button>
-                            )
-                        })}
-                    </div>
-                    <div className="count">
-                        <button onClick ={() => handleChangeCount("-") } disabled = {count === 1 ? true : false}>-</button>
-                        <strong>{count}</strong>
-                        <button onClick ={() => handleChangeCount ("+")} disabled = {count === 10 ? true : false}>+</button>
-                    </div>
-                    <div className="buy">
-                        <button>BUY</button>
-                        <button onClick={handleAddToCard}>ADD TO CARD</button>
-                    </div>
-                    
-                </Options>
+                <div className="size">
+                    {sizeDefault.map ((value, index) => {
+                        return (
+                            <button onClick = {() => handleChangeSize(value)}
+                            className={size === value ? "active2" : ""} key={index}>
+                            {value.toUpperCase()}
+                            </button>
+                        )
+                    })}
+                </div>
+                <div className="count">
+                    <button onClick ={() => handleChangeCount("-") } disabled = {count === 1 ? true : false}>-</button>
+                    <strong>{count}</strong>
+                    <button onClick ={() => handleChangeCount ("+")} disabled = {count === 10 ? true : false}>+</button>
+                </div>
+                <div className="buy">
+                    <button>BUY</button>
+                    <button onClick={handleAddToCard}>ADD TO CART</button>
+                </div>
+            </Options>
        </Wrap>
     );
 }

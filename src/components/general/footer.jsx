@@ -72,7 +72,10 @@ const Info = styled.div`
         font-weight: 500;
     }
 `;
-const License = styled.div`
+const License = styled
+
+
+.div`
     width: 100%;
     text-align: center;
     background: #f8f8f8;

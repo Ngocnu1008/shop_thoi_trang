@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
-
 const Container = styled.div`
-    background: ${props => props.theme.bg};
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.4);
     height: 70px;
     display: flex;
     align-items: center;
     position: fixed;
     width: 100%;
     top: 0;
-    box-shadow: 1px 3px 5px 0px rgb(0 0 0 / 10%);
+    // box-shadow: 1px 3px 5px 0px rgb(0 0 0 / 10%);
+    &:hover{
+        // background: ${props =>props.theme.bg};
+    }
 `;
 const Content = styled.div`
     width: 95%;
@@ -39,18 +42,19 @@ const Content = styled.div`
             cursor: pointer;
             &:hover {
                 color: gray;
+
             }
         }
     }
     .navigation {
-        width: 65%;
+        width: 55%;
         
     }
     .nav_right{
         box-sizing: border-box;
         li {
-            margin: 0;
-            padding: 0rem 0.5rem;
+            margin: 0 0rem;
+            padding: 0rem 1rem;
             border-right: 1px solid gray;
             input {
                 border: none;
@@ -60,27 +64,27 @@ const Content = styled.div`
                     outline: none;
                 }
             }
+            strong{
+                font-size: 14px;
+                margin-left: 2px;
+                color: red;
+            }
         } 
-        li:first-child {
-            // position: relative;
-            // display: flex;
-            // align-items: center;
-            // i {
-            //     position: absolute;
-            //     right: 10%;
-            //     color: black;
-            // }
+        a:first-child {
             i {
                 transform: translateX(-20px);
                 color: black;
             }
         }  
-        li:last-child {
+        a:last-child {
+            border-right: none;
+        }
+        a:last-child li {
             border-right: none;
         }
     }
 `;
-function Navbar () {
+function Navbar ({count, check_login}) {
     return (
         <div>
             <Container>
@@ -90,13 +94,20 @@ function Navbar () {
                     </div>
                     <div className="navigation">
                         <ul>
-                            <NavLink to="/hang-nu/news"><li>Nữ</li></NavLink>
-                            <NavLink to="/hang-nam"><li>Nam</li></NavLink>
-                            <NavLink to="/tre-em"><li>Trẻ em</li></NavLink>
-                            <NavLink to="/sale"><li>Final sale</li></NavLink>
-                            <NavLink to="/category"><li>Bộ sưu tập</li></NavLink>
-                            <NavLink to="/news"><li>Tin tức</li></NavLink>
-                            <NavLink to="/info"><li>Thông tin</li></NavLink>
+                            <NavLink to="/hang-nu/news"><li>Nữ</li>
+                            </NavLink>
+                            <NavLink to="/hang-nam/news"><li>Nam</li>
+                            </NavLink>
+                            <NavLink to="/hang-tre-em/news"><li>Trẻ em</li>
+                            </NavLink>
+                            <NavLink to="/sale-off/page1"><li>Final sale</li>
+                            </NavLink>
+                            <NavLink to="/category"><li>Bộ sưu tập</li>
+                            </NavLink>
+                            <NavLink to="/news"><li>Tin tức</li>
+                            </NavLink>
+                            <NavLink to="/info"><li>Thông tin</li>
+                            </NavLink>
                         </ul>
                     </div>
                     <div className="nav_right">
@@ -108,12 +119,18 @@ function Navbar () {
                             <li>
                                 <i className="fa fa-paw" aria-hidden="true"></i>
                             </li>
+                            <Link to ={check_login ? "/account" : "/login"}>
                             <li>
                                 <i className="fa fa-user" aria-hidden="true"></i>
                             </li>
+                            </Link>
+                            <Link to="/cart">
                             <li>
                                 <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+                                <strong>{count > 0 ? count : ""}</strong>
                             </li>
+                            </Link>
+                           
                         </ul>
                     </div>
                 </Content>

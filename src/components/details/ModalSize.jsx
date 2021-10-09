@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
     width: 100%;
-    background: black;
+    // background: black;
 `;
 const Header = styled.div`
     width: 95%;
     margin: auto;
     opacity: 1;
+    h3 {
+        margin-left: 8px;
+    }
     display: flex;
     justify-content: space-between;
     margin: 10px 0px 20px 10px;
@@ -22,16 +25,22 @@ const Header = styled.div`
     }
 `;
 const Content = styled.div`
-    width: 50%;
+    width: 55%;
     margin: auto;
     background: white;
     color: black;
     opacity: 1 !important;
-    z-index; 2;
+    z-index: 2;
     position: fixed;
     top: 50%;
     left: 50%;
+    height: 50%;
+    overflow-y: scroll;
+    height: 700px;
     transform: translateX(-50%) translateY(-50%);
+    table tbody tr td {
+        margin-left: 5px;
+    }
 `;
 const Background = styled.div`
     width: 100%;
@@ -40,35 +49,54 @@ const Background = styled.div`
     opacity: 0.3;
     position: fixed;
     top: 0;
+    left: 0;
 `;
 const SizeClothes = styled.div`
     width: 95%;
     margin: auto;
+    box-sizing: border-box;
 `;
 const SizeShoes = styled.div`
-    width: 90%;
-    margin: auto;   
+    width: 95%;
+    margin: auto;  
+    box-sizing: border-box;
+
 `;
-function ModalSize({setOpenModal}) {
-    const handleClick = () => {
-        setOpenModal(false);
+function ModalSize({setDisplay}) {
+    let modal = useRef(null);
+
+    const handleClose = () => {
+        setDisplay(0);
     } 
-    //const [openModal, setOpenModal] = useState(false)
-    // const handleClick = () => {
-        //setOpenModal(true);
+
+//useRef: 
+const handleClick = (e) => {
+    if (modal.current && !modal.current.contains(e.target)){
+        setDisplay(0);
+    }
+}
+useEffect (() => {
+    window.scroll(0,0);
+});
+useEffect (() =>{
+    window.addEventListener("click", handleClick);
+    return () => {
+        document.removeEventListener("click", handleClick)
+    };
+}, []);  
     return (
         <Wrap>
             <Background/>
-            <Content>
+            <Content ref={modal}>
                 <Header>
                     <h3>Bảng tư vấn size</h3>
-                    <button onClick={handleClick}>X</button>
+                    <button onClick={handleClose}>X</button>
                 </Header>
                 <SizeClothes>
-                    <table>
+                    <table style={{"width":"800px"}}>
                         <tbody>
                         <tr>
-                            <td rowspan="16">
+                            <td rowspan="16" style={{"width": "250px"}}>
                                 <div className="img_decription">
                                     <img src="https://pubcdn.ivymoda.com/images/daieo_large.jpg" alt =""/>
                                 </div>
@@ -184,10 +212,10 @@ function ModalSize({setOpenModal}) {
                 </SizeClothes>
                 
                 <SizeShoes>
-                    <table>
+                    <table style={{"width": "800px"}}>
                             <tbody>
                                 <tr>
-                                    <td rowspan= "4">
+                                    <td rowspan= "4" style={{"width": "250px"}}>
                                         <img src="https://pubcdn.ivymoda.com/images/chan_medium.jpg" alt=""/>
                                     </td>
                                     <td colspan="7">SIZE GIÀY</td>
