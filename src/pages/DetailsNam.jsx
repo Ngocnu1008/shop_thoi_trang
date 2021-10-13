@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
-import {newpolo, somi, polo, thun, news2} from "../data/do_nam";
+import {newpolo, somi, polo, thun, news2, jeans, long_trousers, shoes, short, suit, accessory} from "../data/do_nam";
 import Info from '../components/detailsNam/Infor';
 import Protection from '../components/detailsNam/protection';
 import Sizereference from '../components/detailsNam/Sizereference';
 import Loading from '../components/Loading';
 const Wrap = styled.div`
-    padding-top: 20px;
+    padding-top: 50px;
     width: 70%;
     display: flex;
     margin: auto;
@@ -116,6 +116,36 @@ function DetailsNam({setCount, count}) {
                 var details = thun.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
                 setRelate(thun);
+                break;
+            case "jeans":
+                var details = jeans.filter((value) => value.id === parseInt(id_sanpham));
+                setData(details);
+                setRelate(jeans);
+                break;
+            case "long_trousers":
+                var details = long_trousers.filter((value) => value.id === parseInt(id_sanpham));
+                setData(details);
+                setRelate(long_trousers);
+                break;
+            case "short":
+                var details = short.filter((value) => value.id === parseInt(id_sanpham));
+                setData(details);
+                setRelate(short);
+                break;
+            case "suit":
+                var details = suit.filter((value) => value.id === parseInt(id_sanpham));
+                setData(details);
+                setRelate(suit);
+                break;
+            case "shoes":
+                var details = shoes.filter((value) => value.id === parseInt(id_sanpham));
+                setData(details);
+                setRelate(shoes);
+                break;
+            case "accessory":
+                var details = accessory.filter((value) => value.id === parseInt(id_sanpham));
+                setData(details);
+                setRelate(accessory);
                 break;
             default:
                 var details = news2.filter((value) => value.id === parseInt(id_sanpham));

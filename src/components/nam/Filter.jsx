@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from "styled-components"
 import Swal from "sweetalert2";
 const Wrap = styled.div`
-    width: 40%;
+    width: 38%;
     margin-top: 30px;
     .size{
         button{
@@ -33,7 +33,7 @@ const Wrap = styled.div`
             font-size: 14px;
             font-weight: bold;
             &:hover{
-                background-color: orange;
+                color: orange;
             }
         }
     }
@@ -93,8 +93,8 @@ function Filter({data, setFilter}) {
             </div>
             <div className="filter">
                 <div className="price">
-                    <input type="number" name="min" value={value.min} onChange={handeChangeValue}></input>
-                    <input type="number" name="max" value={value.max} onChange={handeChangeValue}></input>
+                    <input type="number" name="min" placeholder="Nhập giá" value={value.min} onChange={handeChangeValue}/>
+                    <input type="number" name="max" placeholder="Nhập giá" value={value.max} onChange={handeChangeValue}/>
                 </div>
                 <button onClick={handleFilter }>Lọc</button>
             </div>

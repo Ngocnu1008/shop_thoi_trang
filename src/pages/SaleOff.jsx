@@ -13,6 +13,7 @@ function SaleOff(props) {
     let params = useParams();
     console.log(params);
     useEffect(() =>{
+        window.scroll(0,0);
         setGender(params.gender);
         setTimeout(() =>{
             setLoading(false);

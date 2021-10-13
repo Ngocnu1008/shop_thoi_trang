@@ -13,7 +13,7 @@ const Wrap = styled.div`
     margin-top: 25px;
 `;
 const Title = styled.p`
-    margin-top: 30px;
+    margin-top: 50px;
     text-transform: uppercase;
     font-weight: bold;
 `;

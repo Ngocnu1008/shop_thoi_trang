@@ -26,6 +26,7 @@ const Header = styled.div`
 const Content = styled.div`
     width: 55%;
     margin: auto;
+    margin-top: 3.5%;
     background: white;
     color: black;
     opacity: 1 !important;

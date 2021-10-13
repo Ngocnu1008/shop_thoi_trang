@@ -8,8 +8,8 @@ function Loading() {
             <ReactLoading
             type="bubbles"
             color="blue"
-            height={"10%"}
-            width={"10%"}
+            height={"5%"}
+            width={"5%"}
             className="loading"
             />
         </div>

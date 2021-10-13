@@ -3,31 +3,41 @@ import styled from 'styled-components';
 import {shirt, dream, phu_kien, skirt, trousers, news3, boy_phu_kien, boy_shirt, boy_trousers} from "../../data/do_tre_em";
 import {Link} from "react-router-dom";
 import Filter from "./Filter";
+import SortKid from './SortKid';
+import Notfound from '../nu/Notfound';
 
 const Wrap = styled.div`
     max-width: 80%;
 `;
 const General = styled.div`
     h3{
-        margin-top: 30px;
+        margin-top: 50px;
         text-transform: uppercase;
         font-weight: bold;
     }
     color: ${props => props.theme.color};
     display: flex;
     .options {
-        cursor: pointer;
-        margin-top: 30px;
+        margin-top: 50px;
         display: flex;
         div{
+            border: 1px solid gray;
+            padding: 5px 3px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin: 0 5%;
-            width: 150px;
+            margin: 0 10%;
+            width: 250px;
             p {
-                margin: 0 20px;
+                margin: 0 10px;
+            }
+            i{
+                margin-right: 10px;
             }
         }
+    }
+    div:hover{
+        cursor: pointer;
     }
 `;
 const Products = styled.div`
@@ -61,9 +71,16 @@ const Card = styled.div`
 function Content({type}) {
     const [data, setData] = useState([]);
     const [filter, setFilter] = useState([]);
-    const [display, setDisplay] = useState(false);
-    const handleOpenFilter = () =>{
-        setDisplay(!display);
+    const [displayFilter, setDisplayFilter] = useState(false);
+    const [displaySort, setdisplaySort] = useState(false);
+    const handleOpenFilter = (state) =>{
+        if(state === 1){
+            setDisplayFilter(!displayFilter);
+            setdisplaySort(false);
+        }else{
+            setdisplaySort(!displaySort);
+            setDisplayFilter(false);
+        }
     }
     const [title, setTitle] = useState("Hàng trẻ em mới về");
     useEffect(() =>{
@@ -119,29 +136,31 @@ function Content({type}) {
             <General>
                 <h3>{title}</h3>
                 <div className="options">
-                    <div className="filter" onClick={handleOpenFilter}>
+                    <div className="filter" onClick={() => handleOpenFilter(1)}>
                         <p>Bộ lọc</p>
                         <i className="fa fa-sort-desc" aria-hidden="true"></i>
                     </div>
-                    <div className="sort">
+                    <div className="sort" onClick={() => {handleOpenFilter(2)}}>
                         <p>Sắp xếp</p>
                         <i className="fa fa-sort-desc" aria-hidden="true"></i>
                     </div>
                 </div>
             </General>
-            {display ? <Filter setFilter={setFilter} data={data}/> : ""};
+            {displayFilter ? <Filter setFilter={setFilter} data={data}/> : ""}
+            {displaySort ? <SortKid setFilter={setFilter} data={data}/> : ""}
             <Products>
-                {filter && 
-                filter.map((value, index) => {
-                    return (
-                        <Card key= {index}>
-                            <img src={`/image/woman/top_collections/${value.image}`}/>
-                            <Link to={`/chi-tiet-hang-tre-em/${type}/${value.id}`}><h3>{value.name}</h3></Link>
-                            <h4>{value.price}</h4>
-                            <p>_new_</p>
-                        </Card>
-                    )
-                })}
+                {filter && filter.length > 0 
+                ? (
+                    filter.map((value, index) => {
+                        return (
+                            <Card key= {index}>
+                                <img src={`/image/woman/top_collections/${value.image}`}/>
+                                <Link to={`/chi-tiet-hang-tre-em/${type}/${value.id}`}><h3>{value.name}</h3></Link>
+                                <h4>{value.price}</h4>
+                                <p>_new_</p>
+                            </Card>
+                        )
+                })) : <Notfound/>}
             </Products>
         </Wrap>
     );

@@ -8,7 +8,7 @@ import Sizetable from '../components/detailsTre_em/Sizetable';
 import Loading from '../components/Loading';
 
 const Wrap = styled.div`
-    padding-top: 20px;
+    padding-top: 50px;
     width: 70%;
     display: flex;
     margin: auto;`;

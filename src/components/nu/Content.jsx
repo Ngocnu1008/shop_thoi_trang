@@ -4,27 +4,34 @@ import {Link} from "react-router-dom";
 import {news1, shirt, croptop, somi, vest, short, trousers, jeans, dam, dam_thun, dam_mexi} from "../../data/do_nu";
 import Filter from './Filter';
 import SortComponent from "./Sort"
+import Notfound from './Notfound';
 const Wrap = styled.div`
     max-width: 80%;
 `;
 const General = styled.div` 
     h3{
-        margin-top: 30px;
+        margin-top: 50px;
         text-transform: uppercase;
         font-weight: bold;
     }
     color: ${props => props.theme.color};
     display: flex;
     .options {
-        margin-top: 30px;
+        margin-top: 50px;
         display: flex;
         div{
+            border: 1px solid gray;
+            padding: 5px 3px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin: 0 5%;
-            width: 150px;
+            margin: 0 10%;
+            width: 250px;
             p {
-                margin: 0 20px;
+                margin: 0 10px;
+            }
+            i{
+                margin-right: 10px;
             }
         }
     }
@@ -132,9 +139,11 @@ function Content({type}) {
     // }
     const handleDisplayFilter = (state) => {
         if(state === "1"){
-            setDisplay(true);
+            setDisplay(!display);
+            setDisplaySort(false);
         }else{
-            setDisplaySort(true);
+            setDisplaySort(!displaySort);
+            setDisplay(false);
         }
     }
     return (
@@ -155,17 +164,18 @@ function Content({type}) {
             {display && <Filter setFilter={setFilter} data={data}/>}
             {displaySort && <SortComponent setFilter={setFilter} data={data}/>}
             <Products>
-                {filter && 
-                filter.map ((value, index) => {
-                    return (
-                        <Card key={index}>
-                            <img src={`/image/woman/top_collections/${value.image}`}/>
-                            <Link to={`/chi-tiet-hang-nu/${type}/${value.id}`}><h3>{value.name}</h3></Link>
-                            <h4>{value.price}<sup>đ</sup></h4>
-                            <p>_new_</p>
-                        </Card>
-                    )
-                })}
+                {filter && filter.length > 0 
+                ? (
+                    filter.map ((value, index) => {
+                        return (
+                            <Card key={index}>
+                                <img src={`/image/woman/top_collections/${value.image}`}/>
+                                <Link to={`/chi-tiet-hang-nu/${type}/${value.id}`}><h3>{value.name}</h3></Link>
+                                <h4>{value.price}<sup>đ</sup></h4>
+                                <p>_new_</p>
+                            </Card>
+                        )
+                })) : <Notfound/>}
             </Products>
         </Wrap>
     );

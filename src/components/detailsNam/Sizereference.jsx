@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 const Wrap = styled.div`
     width: 100%;
+    margin-top: 5%;
     // background: black;
+    padding: 15px;
 `;
 const Header = styled.div`
     width: 95%;
@@ -27,6 +29,8 @@ const Header = styled.div`
 const Content = styled.div`
     width: 55%;
     margin: auto;
+    margin-top: 2%;
+    padding: 10px 0px;
     background: white;
     color: black;
     opacity: 1 !important;
@@ -36,10 +40,10 @@ const Content = styled.div`
     left: 50%;
     height: 50%;
     overflow-y: scroll;
-    height: 700px;
+    height: 600px;
     transform: translateX(-50%) translateY(-50%);
-    table tbody tr td {
-        margin-left: 5px;
+    table tr td {
+        padding: 8px;
     }
 `;
 const Background = styled.div`

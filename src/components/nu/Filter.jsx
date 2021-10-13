@@ -3,7 +3,7 @@ import Swal from "sweetalert2"
 import styled from 'styled-components';
 
 const Wrap = styled.div`
-    width: 40%;
+    width: 38%;
     margin-top: 30px;
     .size{
         button{
@@ -34,7 +34,7 @@ const Wrap = styled.div`
             font-size: 14px;
             font-weight: bold;
             &:hover{
-                background-color: orange;
+                color: orange;
             }
         }
     }

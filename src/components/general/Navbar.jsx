@@ -3,17 +3,14 @@ import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
 const Container = styled.div`
     z-index: 3;
-    background: rgba(255, 255, 255, 0.4);
-    height: 70px;
+    background: ${props =>props.theme.bg};
+    height: 60px;
     display: flex;
     align-items: center;
     position: fixed;
     width: 100%;
     top: 0;
-    // box-shadow: 1px 3px 5px 0px rgb(0 0 0 / 10%);
-    &:hover{
-        // background: ${props =>props.theme.bg};
-    }
+    box-shadow: 1px 3px 5px 0px rgb(0 0 0 / 10%);
 `;
 const Content = styled.div`
     width: 95%;
@@ -102,7 +99,7 @@ function Navbar ({count, check_login}) {
                             </NavLink>
                             <NavLink to="/sale-off/page1"><li>Final sale</li>
                             </NavLink>
-                            <NavLink to="/category"><li>Bộ sưu tập</li>
+                            <NavLink to="/collections/type"><li>Bộ sưu tập</li>
                             </NavLink>
                             <NavLink to="/news"><li>Tin tức</li>
                             </NavLink>

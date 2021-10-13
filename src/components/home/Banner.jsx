@@ -18,20 +18,24 @@ const Banner = () => {
             {/* <img src="https://pubcdn.ivymoda.com/files/news/2021/09/14/e6755c46cb2b66236e9142a6a5b3fdf7.jpg" alt=""/> */}
             <Carousel autoPlay={true} infiniteLoop={true} showThumbs = {false} interval={2000}>
                 <Link to="/hang-nam/:type">
-                <div>
-                    <img src="https://pubcdn.ivymoda.com/files/news/2021/09/14/e6755c46cb2b66236e9142a6a5b3fdf7.jpg" alt=""/>
-                </div></Link>
+                    <div>
+                        <img src="https://pubcdn.ivymoda.com/files/news/2021/09/14/e6755c46cb2b66236e9142a6a5b3fdf7.jpg" alt=""/>
+                    </div>
+                </Link>
                 <Link to="/hang-nu/:type">
-                <div>
-                    <img src="https://pubcdn.ivymoda.com/files/news/2021/10/05/fe0a56c78a947a5a57180c379899c1ed.jpg" alt=""/>
-                </div></Link>
-                <div>
-                    <img src="https://pubcdn.ivymoda.com/files/news/2021/10/08/ef7214376241abca50111290ce2d3ee9.jpg" alt=""/>
-                </div>
+                    <div>
+                        <img src="https://pubcdn.ivymoda.com/files/news/2021/10/05/fe0a56c78a947a5a57180c379899c1ed.jpg" alt=""/>
+                    </div>
+                </Link>
+                <Link to="/collections/:type">
+                    <div>
+                        <img src="https://pubcdn.ivymoda.com/files/news/2021/10/08/ef7214376241abca50111290ce2d3ee9.jpg" alt=""/>
+                    </div>
+                </Link>
                 <Link to="/sale-off/:gender">
-                <div>
-                    <img src="https://pubcdn.ivymoda.com/files/news/2021/09/25/f597c81646d5ade7ea99d673343d2abb.jpg" alt=""/>
-                </div>
+                    <div>
+                        <img src="https://pubcdn.ivymoda.com/files/news/2021/09/25/f597c81646d5ade7ea99d673343d2abb.jpg" alt=""/>
+                    </div>
                 </Link>
             </Carousel>
         </Wrap>

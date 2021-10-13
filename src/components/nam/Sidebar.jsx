@@ -52,19 +52,21 @@ function Sidebar(props) {
                 <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
                 Quần Nam
                     <ul>
-                        <li>Quần jeans nam</li>
-                        <li>Quần short/lửng nam</li>
-                        <li>Quần dài nam</li>
-                        <li>Quần Tây nam</li>
+                        <Link to ="/hang-nam/jeans"><li>Quần jeans nam</li></Link>
+                        <Link to ="/hang-nam/short"><li>Quần short/lửng nam</li></Link>
+                        <Link to ="/hang-nam/long_trousers"><li>Quần dài nam</li></Link>
+                        <Link to ="/hang-nam/suit"><li>Quần Tây nam</li></Link>
                     </ul>
                 </li>
                 <li>
-                <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-                Giày Nam
+                <i className="fa fa-arrow-circle-o-right" aria-hidden="true">
+                </i>
+                <Link to ="/hang-nam/shoes">Giày Nam</Link>
                 </li>
                 <li>
                 <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-                Phụ kiện Nam
+                <Link to ="/hang-nam/accessory">
+                Phụ kiện Nam</Link>
                 </li>
             </ul>
         </Wrap>

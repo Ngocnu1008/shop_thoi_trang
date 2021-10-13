@@ -7,7 +7,7 @@ import Protect from '../components/details/Protect';
 import ModalSize from '../components/details/ModalSize';
 import Loading from '../components/Loading';
 const Wrap = styled.div`
-    padding-top: 20px;
+    padding-top: 50px;
     width: 70%;
     display: flex;
     margin: auto;

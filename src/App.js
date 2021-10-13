@@ -18,6 +18,11 @@ import Kid from "./pages/Kid";
 import DetailsTre_em from "./pages/DetailsTre_em";
 import SaleOff from "./pages/SaleOff";
 import DetailsSaleOff from "./pages/DetailsSaleOff";
+import Collections from "./pages/Collections";
+import Notfound0 from "./pages/Notfound0";
+import News from "./pages/News";
+import DetailsNews from "./pages/DetailsNews";
+import Info from "./pages/Info";
 const Wrap = styled.div`
   background: ${props => props.theme.bg_body};
 `
@@ -51,7 +56,7 @@ function App() {
             <Content/>
               <Route path="/" exact>
                 <Home/>
-              </Route>]
+              </Route>
               <Route path="/hang-nu/:type" exact>
                 <Women/>
               </Route>
@@ -63,6 +68,15 @@ function App() {
               </Route>
               <Route path="/sale-off/:gender">
                 <SaleOff/>
+              </Route>
+              <Route path="/collections/:type">
+                <Collections/>
+              </Route>
+              <Route path="/news">
+                <News/>
+              </Route>
+              <Route path="/info">
+                <Info/>
               </Route>
               <Route path="/cart" exact>
                 <Cart/>
@@ -79,12 +93,18 @@ function App() {
               <Route path="/chi-tiet-sale-off/:gender/:id_sanpham">
                 <DetailsSaleOff setCount={setCount} count = {count}/>
               </Route>
+              <Route path="/chi-tiet-tin-tuc/:id_sanpham">
+                <DetailsNews/>
+              </Route>
               <Route path="/login">
                 <Login setCheckLogin={setCheckLogin}/>
               </Route>
               <Route path="/account">
                 <Account/>
-              </Route>  
+              </Route>
+              {/* <Route path="*">
+                <Notfound0/>
+              </Route>   */}
               {/* lúc này không bỏ login và account vào cùng 1 path vì trong th user đã login xong mà đường dẫn path vẫn hiện chữ login thì
               sẽ không được hợp lý nên sẽ chuyển vào trang hoàn toàn khác là account luôn nên mới tạo 2 path, 2 pages khác nhau. */}
           <Footer/>

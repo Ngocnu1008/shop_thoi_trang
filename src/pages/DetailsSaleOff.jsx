@@ -7,7 +7,7 @@ import TableSize from "../components/DetailsSaleOff/TableSize";
 import Protection from "../components/DetailsSaleOff/Protection";
 
 const Wrap = styled.div`
-    padding-top: 20px;
+    padding-top: 50px;
     width: 70%;
     display: flex;
     margin: auto;
