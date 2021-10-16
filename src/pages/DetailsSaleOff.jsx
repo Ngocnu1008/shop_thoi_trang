@@ -11,10 +11,20 @@ const Wrap = styled.div`
     width: 70%;
     display: flex;
     margin: auto;
+    @media screen and (max-width: 811px) {
+        padding-top: 100px;
+        display: block;
+        width: 100%;
+        margin: auto;
+    }
 `;
 const Left = styled.div`
     width: 50%;
     text-align: center;
+    @media screen and (max-width: 811px) {
+        width: 80%;
+        margin: auto;
+    }
 `;
 const Right = styled.div`
     width: 50%;
@@ -30,6 +40,17 @@ const Right = styled.div`
                 font-size: 16px;
             }
         }
+    @media screen and (max-width: 811px) {
+        width: 90%;
+        margin-top: 15% !important;
+        margin: auto;
+        .nav_title{
+            width: 100%;
+            button {
+                font-size: 14px;
+            }
+        }
+    }
 `;
 const Card = styled.div`
     width: 100%;
@@ -39,6 +60,23 @@ const Card = styled.div`
         h2 {
             text-transform: uppercase;
         }
+    @media screen and (max-width: 811px) {
+        width: 100%;
+        margin: auto;
+        img{
+            width: 100%;
+        }
+        h2 {
+            font-size: 18px;
+            margin: 15% 0% 2% 0%;
+        }
+        h3 {
+            font-size: 17px;
+        }
+        sup {
+            font-size: 17px;
+        }
+    }
 `;
 
 function DetailsSaleOff({count, setCount}) {

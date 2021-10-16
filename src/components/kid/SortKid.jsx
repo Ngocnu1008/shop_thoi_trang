@@ -2,13 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Sort = styled.div`
+    z-index: 10 !important;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 150px !important;
     border: 1px solid gray;
-    width: 149px;
-    margin-left: 499px;
-    padding: 0px 10px;
+    padding: 5px 0px !important;
+    display: block !important;
     button{
+        width: 150px !important;
         font-size: 13px;
-        padding: 5px 5px;
+        padding: 5px 4px;
         background: none;
         border: none;
         &:hover{

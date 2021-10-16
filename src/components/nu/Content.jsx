@@ -7,17 +7,29 @@ import SortComponent from "./Sort"
 import Notfound from './Notfound';
 const Wrap = styled.div`
     max-width: 80%;
+    position: relative;
+    @media screen and (max-width: 811px){
+        max-width: 100%;
+        margin-left: 5%; 
+        position: relative;
+    }
+    @media screen and (max-width: 1023px) {
+        position: relative;
+    }
 `;
 const General = styled.div` 
+    cursor: pointer;
+    margin-top: 50px;
     h3{
-        margin-top: 50px;
         text-transform: uppercase;
         font-weight: bold;
     }
     color: ${props => props.theme.color};
     display: flex;
     .options {
-        margin-top: 50px;
+        position: absolute;
+        left: 15%;
+        margin-left: 50px;
         display: flex;
         div{
             border: 1px solid gray;
@@ -38,6 +50,44 @@ const General = styled.div`
     div:hover{
         cursor: pointer;
     }
+    @media screen and (max-width: 811px){
+        margin-top: 80px;
+        display: block;
+        h3{
+            font-size: 15px;
+        }
+        .options {
+            width: 320px;
+            margin: auto !important;
+            margin-left: 10px;
+            display: flex;
+            margin-right: 0px;
+            position: absolute;
+            left: 0px;
+            top: 115px;
+            div{
+                :last-child {
+                    margin-left: 25px;
+                }
+                padding: 5px 3px;
+                margin: 0 5%;
+                width: 150px;
+                p {
+                    margin: 0 10px;
+                }
+                i{
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    // @media screen and (max-width: 1023px) {
+    //     .options {
+    //         position: absolute;
+    //         left: 17%;
+    //         top: 2.4%;
+    //     }
+    // }
 `;
 const Products = styled.div`
     display: flex;
@@ -45,6 +95,12 @@ const Products = styled.div`
     justify-content: space-between;
     width: 90%;
     margin-top: 25px;
+    @media screen and (max-width: 811px) {
+        margin-top: 20%;
+    }
+    @media screen and (max-width: 1023px) {
+        margin-top: 20%;
+    }
 `;
 const Card = styled.div`
     width: 23%;
@@ -61,9 +117,25 @@ const Card = styled.div`
         text-transform: uppercase;
         font-weight: 600;
         margin-top: 5px;
+        cursor: pointer;
     }
     h4 {
         font-weight: 400;
+    }
+    @media screen and (max-width: 811px) {
+        width: 47%;
+        h3{
+            font-size: 15px;
+            white-space: nowrap;//chữ chỉ trên 1 dòng và bị tràn bất kể độ dài ntn.
+            overflow: hidden;//chữ nhiều sẽ bị tràn bên phải làm xấu web
+            text-overflow: ellipsis;//hiển thị ... nếu chữ không hiển thị hết
+        }
+    }
+    h4{
+        font-size: 15px;
+    }
+    p{
+        font-size: 12px;
     }
 `;
 function Content({type}) {
@@ -158,11 +230,11 @@ function Content({type}) {
                     <div className="sort" onClick={() => handleDisplayFilter("2")}>
                         <p>Sắp xếp</p>
                         <i className="fa fa-sort-desc" aria-hidden="true"></i>
+                        {displaySort && <SortComponent setFilter={setFilter} data={data}/>}
                     </div>
                 </div>
             </General>
             {display && <Filter setFilter={setFilter} data={data}/>}
-            {displaySort && <SortComponent setFilter={setFilter} data={data}/>}
             <Products>
                 {filter && filter.length > 0 
                 ? (

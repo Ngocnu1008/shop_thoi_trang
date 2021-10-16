@@ -18,11 +18,21 @@ const Options = styled.div`
     .buy button {
         padding: 7px 10px;
         background: orange;
+    }
+    @media screen and (max-width: 811px) {
+        button:first-child {
+            margin-left: 0px;
+        }
+    }
 `;
 const Wrap = styled.div`
     p {
         margin-top: 15px;
         font-size: 14px;
+    }
+    @media screen and (max-width: 811px) {
+        width: 100%;
+        margin: auto;
     }
 `;
 const SizeOptions = ["s", "m", "l", "xl", "xxl"];

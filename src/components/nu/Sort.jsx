@@ -2,13 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Sort = styled.div`
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 150px !important;
     border: 1px solid gray;
-    width: 149px;
-    margin-left: 462px;
-    padding: 0px 10px;
+    padding: 5px 0px !important;
+    background-color: white;
+    display: block !important;
     button{
+        width: 150px !important;
         font-size: 13px;
-        padding: 5px 5px;
+        padding: 5px 4px;
         background: none;
         border: none;
         &:hover{
@@ -16,6 +22,16 @@ const Sort = styled.div`
         }
         transition: smooth;
         }
+    }
+    @media screen and (max-width: 811px){
+        width: 123.5px !important;
+        button {
+            width: 120px !important;
+            font-size: 12px;
+            padding: 3px 1px;
+        }
+        position: absolute;
+        left: 48.7%;
     }
 `;
 function SortComponent({setFilter,data}) {
@@ -45,6 +61,7 @@ function SortComponent({setFilter,data}) {
     return (
         <Sort>
             <button onClick={() => {handleSort("increment")}}>Giá: thấp đến cao</button>
+            <br/>
             <button onClick={() => {handleSort("decrement")}}>Giá: cao xuống thấp</button>
         </Sort>
     );

@@ -7,6 +7,10 @@ import Loading from '../components/Loading';
 
 const Wrap = styled.div`
     display: flex;
+    @media screen and (max-width: 811px){
+        max-width: 95%;
+        margin: auto; 
+    }
 `;
 function Man(props) {
     const [type, setType] = useState("news");

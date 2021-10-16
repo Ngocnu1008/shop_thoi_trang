@@ -12,6 +12,13 @@ const Wrap = styled.div`
     margin: auto;
     margin-top: 1%;
   }
+  @media screen and (max-width: 1023px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 812px) {
+    width: 100%;
+    margin-top: 15%;
+  }
 `;
 function Home() {
   // const [count, setCount] = useState(0);

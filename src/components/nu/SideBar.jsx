@@ -34,6 +34,9 @@ const Wrap = styled.div`
         }
 
     }
+    @media screen and (max-width: 811px) {
+        display: none;
+    }
 `;
 function SideBar(props) {
     return (

@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {Trendy, Flourish18, Dream} from '../../data/collections';
-
+import { Trendy, Flourish18, Dream } from '../../data/collections';
+import Aos from "aos";
+import "aos/dist/aos.css"
 const Wrap = styled.div`
-    width: 100%;`;
+    width: 100%;
+    @media screen and (max-width: 811px) {
+        margin-top: 30px;
+    }
+`;
 
 const Photo1 = styled.div`
     width: 100%;
@@ -14,6 +19,9 @@ const Photo1 = styled.div`
         :last-child{
             margin-left: 2%;
         }
+    }
+    @media screen and (max-width: 811px) {
+        margin-bottom: 0px;
     }
 `;
 const Photo2 = styled.div`
@@ -57,58 +65,63 @@ const Photo7 = styled.div`
         width: 100%;
     }
 `;
-function Content({type}) {
-    const [data, setData] = useState([]);
+function Content({ type }) {
+    const [data, setData] = useState([])
     useEffect(() =>{
+        Aos.init({duration: 1500})
+    })
+    useEffect(() => {
         switch (type) {
-            case "Flourish18": 
+            case "Flourish18":
                 setData(Flourish18);
                 break;
-            case "Dream": 
+            case "Dream":
                 setData(Dream);
                 break;
-            default: 
+            default:
                 setData(Trendy);
         }
-    },[ type])
+    }, [type])
     console.log(data);
     return (
-        <>
-       <Wrap>
-           {data && 
-           data.map((value) =>{
-               return (
-                   <>
-                        <Photo1>
-                            <img src={`/image/collections/${value.image1}`} alt=""/>
-                            <img src={`/image/collections/${value.image1a}`} alt=""/>
-                        </Photo1>
-                        <Photo2>
-                            <img src={`/image/collections/${value.image2}`} alt=""/>
-                        </Photo2>
-                        <Photo3>
-                            <img src={`/image/collections/${value.image3}`} alt=""/>
-                        </Photo3>
-                        <Photo4>
-                            <img src={`/image/collections/${value.image4}`} alt=""/>
-                            <img src={`/image/collections/${value.image4a}`} alt=""/>
-                            <img src={`/image/collections/${value.image4b}`} alt=""/>
-                        </Photo4>
-                        <Photo5>
-                            <img src={`/image/collections/${value.image5}`} alt=""/>
-                        </Photo5>
-                        <Photo6>
-                            <img src={`/image/collections/${value.image6}`} alt=""/>
-                        </Photo6>
-                        <Photo7>
-                            <img src={`/image/collections/${value.image7}`} alt=""/>
-                        </Photo7>
-                    </>
-               )
-           })
-           }
-       </Wrap>
-       </>
+            <div >
+                <>
+                    <Wrap>
+                        {data &&
+                            data.map((value) => {
+                                return (
+                                    <>
+                                        <Photo1 data-aos="fade-up">
+                                            <img src={`/image/collections/${value.image1}`} alt=""/>
+                                            <img src={`/image/collections/${value.image1a}`} alt="" />
+                                        </Photo1>
+                                        <Photo2 data-aos="fade-up">
+                                            <img src={`/image/collections/${value.image2}`} alt=""/>
+                                        </Photo2>
+                                        <Photo3>
+                                            <img src={`/image/collections/${value.image3}`} alt="" />
+                                        </Photo3>
+                                        <Photo4 data-aos="fade-up">
+                                            <img src={`/image/collections/${value.image4}`} alt="" />
+                                            <img src={`/image/collections/${value.image4a}`} alt="" />
+                                            <img src={`/image/collections/${value.image4b}`} alt="" />
+                                        </Photo4>
+                                        <Photo5>
+                                            <img src={`/image/collections/${value.image5}`} alt="" />
+                                        </Photo5>
+                                        <Photo6 data-aos="fade-up">
+                                            <img src={`/image/collections/${value.image6}`} alt="" />
+                                        </Photo6>
+                                        <Photo7>
+                                            <img src={`/image/collections/${value.image7}`} alt="" />
+                                        </Photo7>
+                                    </>
+                                )
+                            })
+                        }
+                    </Wrap>
+                </>
+            </div>
     );
 }
 

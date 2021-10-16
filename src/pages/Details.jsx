@@ -11,20 +11,52 @@ const Wrap = styled.div`
     width: 70%;
     display: flex;
     margin: auto;
+    @media screen and (max-width: 811px) {
+        padding-top: 100px;
+        display: block;
+        width: 100%;
+        margin: auto;
+    }
 `;
 const Card = styled.div`
     width: 100%;
-    // margin: 0 0.5%;
     img {
         width: 50%;
     }
     h2 {
         text-transform: uppercase;
     }
+    @media screen and (max-width: 811px) {
+        width: 100%;
+        margin: auto;
+        img{
+            width: 100%;
+        }
+        h2 {
+            font-size: 18px;
+            margin: 15% 0% 2% 0%;
+        }
+        h3 {
+            font-size: 17px;
+        }
+        sup {
+            font-size: 17px;
+        }
+    }
+    @media screen and (max-width: 1023px) {
+        h2 {
+            margin-top: 10%;
+            font-size: 20px;
+        }
+    }
 `;
 const Left = styled.div`
     width: 50%;
     text-align: center;
+    @media screen and (max-width: 811px) {
+        width: 80%;
+        margin: auto;
+    }
 `;
 const Right = styled.div`
     width: 50%;
@@ -40,6 +72,20 @@ const Right = styled.div`
             font-size: 16px;
         }
     }
+    @media screen and (max-width: 811px) {
+        width: 90%;
+        margin-top: 15% !important;
+        margin: auto;
+        .nav_title{
+            width: 100%;
+            button {
+                font-size: 14px;
+            }
+        }
+    }
+    @media screen and (max-width: 1023px) {
+        margin-top: 10% !important;
+    } 
 `;
 const Relate = styled.div`
     padding-top: 20px;
@@ -68,13 +114,30 @@ const Card1 = styled.div`
         margin-top: 2px;
         font-weight: 400;
     }
+    @media screen and (max-width: 811px) {
+        width: 100%;
+        margin: auto;
+        margin-top: 30px;
+        h2 {
+            margin-top: 20px;
+        }
+        h3 {
+            font-size: 16px;
+        }
+    }
 `;
 const Title = styled.p`
     width: 80%;
     margin-top: 70px !important;
     margin: auto;
     text-transform: uppercase;
-    font-weight: bold;    
+    font-weight: bold;  
+    @media screen and (max-width: 811px)  {
+        width: 80%;
+    }
+    @media screen and (max-width: 1023px)  {
+        width: 90%;
+    }  
 `;
 function Details({setCount, count}) {
     const [data, setData] = useState([]);
@@ -169,7 +232,7 @@ function Details({setCount, count}) {
                         <Card key ={value}>
                             <img src={`/image/woman/top_collections/${value.image}`}/>
                             <h2>{value.name}</h2>
-                            <h3>{value.price}</h3>
+                            <h3>{value.price}<sup>đ</sup></h3>
                         </Card>
                     )
                 })}
@@ -196,7 +259,7 @@ function Details({setCount, count}) {
                             <Card1 key={value}>
                                 <img src={`/image/woman/top_collections/${value.image}`}/>
                                 <h2>{value.name}</h2>
-                                <h3>{value.price}</h3>
+                                <h3>{value.price}<sup>đ</sup></h3>
                             </Card1>
                     )}
                 })}

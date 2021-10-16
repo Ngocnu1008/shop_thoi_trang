@@ -5,6 +5,9 @@ import Content from "../components/collections/Content";
 import Sidebar from "../components/collections/Sidebar"
 
 const Wrap = styled.div`
+@media screen and (max-width: 811px) {
+    margin-top: 70px;
+}
 `;
 function Collections(props) {
     const [type, setType] = useState("Trendy");

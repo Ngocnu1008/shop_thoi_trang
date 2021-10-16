@@ -4,6 +4,11 @@ import {female, male, children} from "../../data/saleoff"
 import {Link} from "react-router-dom"
 const BigWrap = styled.div`
     max-width: 80%;
+    @media screen and (max-width: 811px) {
+        margin-top: 20px !important;
+        max-width: 95%;
+        margin: auto;
+    }
 `;
 const Wrap = styled.div`
     display: flex;
@@ -11,11 +16,20 @@ const Wrap = styled.div`
     justify-content: space-between;
     width: 90%;
     margin-top: 25px;
+    @media screen and (max-width: 811px) {
+        width: 95%;
+        margin: auto;
+        margin-top: 20px;
+    }
 `;
 const Title = styled.p`
     margin-top: 50px;
     text-transform: uppercase;
     font-weight: bold;
+    @media screen and (max-width: 811px) {
+        font-size: 14px;
+        margin-left: 10px;
+    }
 `;
 const Card = styled.div`
     width: 23%;
@@ -40,6 +54,24 @@ const Card = styled.div`
         color: red;
         font-size: 14px;
         margin-top: 5px;
+    }
+    @media screen and (max-width: 811px) {
+        width: 47%;
+        h3{
+            font-size: 15px;
+            white-space: nowrap;//chữ chỉ trên 1 dòng và bị tràn bất kể độ dài ntn.
+            overflow: hidden;//chữ nhiều sẽ bị tràn bên phải làm xấu web
+            text-overflow: ellipsis;//hiển thị ... nếu chữ không hiển thị hết
+        }
+        h4{
+            font-size: 15px;
+        }
+        p {
+            font-size: 12px;
+        }
+        img {
+            width: 100%;
+        }
     }
 `;
 function Content({gender}) {

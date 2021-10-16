@@ -80,6 +80,70 @@ const Content = styled.div`
             border-right: none;
         }
     }
+     @media screen and (max-width: 811px){
+        width: 95%;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        .navigation {
+            display: none;
+        }
+        .logo{
+            width: 25%;
+        }
+        .nav_right {
+            width: 62%;
+            ul li{
+                font-size: 8px;
+                border-right: none;
+                input {
+                    width: 120px;
+                    font-size: 10px;
+                }
+                strong{
+                    font-size: 5px;
+                }
+                padding: 0rem 0.5rem;
+            }
+            ul {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    // @media screen and (max-width: 1023px){
+    //     width: 90%;
+    //     margin: auto;
+    //     align-items: center;
+    //     .navigation {
+    //         width: 80%;
+    //     }
+    //     ul {
+    //         align-items: center;
+    //         li {
+    //         font-size: 8px;
+    //         font-weight: bold;
+    //         }
+    //     }
+    //     .nav_right {
+    //         width: 49%;
+    //         ul {
+    //             align-items: center;
+    //             li{
+    //                 font-size: 14px;
+    //                 padding: 0px 10px;
+    //                 input{
+    //                     width: 200px;
+    //                     font-size: 15px;
+    //                 }
+    //                 strong {
+    //                     font-size: 8px;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+   
 `;
 function Navbar ({count, check_login}) {
     return (

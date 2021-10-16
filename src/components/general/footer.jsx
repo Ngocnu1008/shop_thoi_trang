@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 
 const Container = styled.div`
     width: 100%;   
     border: 1px solid black;
     margin: 20px 0px 70px 0px;
+    @media screen and (max-width: 811px) {
+        margin-bottom: 50px;
+    }
 `;
 const Wrap = styled.div`
     width: 40%;
@@ -13,7 +17,7 @@ const Wrap = styled.div`
     text-align: center;
     margin-top: 3%;
     input{
-        width: 40   %;
+        width: 100%;
         padding: 0.5rem;
         border-radius: 5px;
         margin: 20px 0px 10px 0px;
@@ -28,6 +32,13 @@ const Wrap = styled.div`
         border-radius: 5px;
     }
     color: ${props => props.theme.color};
+    @media screen and (max-width: 811px){
+        h2 {
+            font-size: 20px;
+        }
+        width: 60%;
+        margin-top: 5px;
+    }
 `;
 const ImgDownload = styled.div`
     display: flex;
@@ -71,28 +82,59 @@ const Info = styled.div`
     p{
         font-weight: 500;
     }
+    @media screen and (max-width: 811px) {
+        margin: 5% 0%;
+        width: 100%;
+        ul li{
+            font-size: 10px;
+            i{
+                font-size: 10px;
+            }
+        }
+        p {
+            font-size: 9px;
+        }
+    }
 `;
-const License = styled
-
-
-.div`
+const License = styled.div`
     width: 100%;
     text-align: center;
     background: #f8f8f8;
     padding: 20px 0;
+    @media screen and (max-width: 811px) {
+        font-size: 10px;
+    }
 `;
+function validateEmail(email){
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 const Footer = () => {
     const [text, setText] = useState("");
+    const [errorEmail, setErrorEmail] = useState(false);
     const handleGetValue = (e) => {
         setText(e.target.value);
     }
     const [send, setSend] = useState(false);
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (text !== ""){
-            setSend(true);
+        if (text === ""){
+            return alert("Vui lòng nhập địa chỉ email của bạn!");
         }else {
-            alert("Please fill in your email address!")
+            let check_email = validateEmail(text);
+            if (!check_email) {
+                return setErrorEmail(true);
+            }
+            setErrorEmail(false);
+            setText("");
+            Swal.fire({
+                title: "Đăng nhập email", 
+                text: "Thành công",
+                icon: "success", 
+                confirmButtonText: "yes",
+            }).then(() =>{
+                setSend(true);
+            })
         }
     }
      return (
@@ -110,6 +152,7 @@ const Footer = () => {
              <form action="">
                 <input type="text" placeholder="Nhập email của bạn..." onChange={handleGetValue} value={text}/>
                 <br/>
+                {errorEmail && <p className="warning">Địa chỉ email không đúng</p>}
                 <button type="submit" onClick={handleSubmit}>SUBMIT</button>
              </form>
              <Info>

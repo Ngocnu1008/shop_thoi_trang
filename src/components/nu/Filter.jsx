@@ -47,6 +47,10 @@ const Wrap = styled.div`
     }
     border: 1px solid gray;
     padding: 20px 20px;
+    @media screen and (max-width: 811px) {
+        width: 95%;
+        margin-top: 70px;
+    }
 `;
 function Filter({setFilter, data}) {
     const [price, setPrice] = useState({

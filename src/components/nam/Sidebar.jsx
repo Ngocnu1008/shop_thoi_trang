@@ -31,6 +31,9 @@ const Wrap = styled.div`
             }
         }
     };
+    @media screen and (max-width: 811px) {
+        display: none;
+    }
 `;
 function Sidebar(props) {
     return (

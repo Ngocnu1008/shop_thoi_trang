@@ -8,6 +8,7 @@ import Notfound from '../nu/Notfound';
 
 const Wrap = styled.div`
     max-width: 80%;
+    position: relative;
 `;
 const General = styled.div`
     h3{
@@ -18,6 +19,8 @@ const General = styled.div`
     color: ${props => props.theme.color};
     display: flex;
     .options {
+        position: absolute;
+        left: 15%;
         margin-top: 50px;
         display: flex;
         div{
@@ -143,11 +146,11 @@ function Content({type}) {
                     <div className="sort" onClick={() => {handleOpenFilter(2)}}>
                         <p>Sắp xếp</p>
                         <i className="fa fa-sort-desc" aria-hidden="true"></i>
+                        {displaySort ? <SortKid setFilter={setFilter} data={data}/> : ""}
                     </div>
                 </div>
             </General>
             {displayFilter ? <Filter setFilter={setFilter} data={data}/> : ""}
-            {displaySort ? <SortKid setFilter={setFilter} data={data}/> : ""}
             <Products>
                 {filter && filter.length > 0 
                 ? (

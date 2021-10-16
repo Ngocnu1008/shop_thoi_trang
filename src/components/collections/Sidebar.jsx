@@ -24,7 +24,23 @@ const Wrap = styled.div`
             color: orange;
             background-color: black;
         }
+    }  
+    @media screen and (max-width: 811px) {
+       width: 90%;
+       margin: auto;
+       a {
+           font-size: 7px;
+       }
     }
+    // @media screen and (max-width: 1023px) {
+    //     width: 50%;
+    //     margin: auto;
+    //     display: flex;
+    //     justify-content: space-between;
+    //     a {
+    //         font-size: 9px;
+    //     }
+    //  }
 `;
 function Sidebar(props) {
     return (

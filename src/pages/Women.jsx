@@ -6,7 +6,11 @@ import {useParams} from "react-router-dom";
 import Loading from '../components/Loading';
 import { Redirect } from 'react-router';
 const Wrap = styled.div`
-    display: flex;    
+    display: flex; 
+    @media screen and (max-width: 811px){
+        max-width: 95%;
+        margin: auto; 
+    }   
 `;
 const standard = ["news", "shirt", "croptop" ,"somi", "vest", "short", "trousers", "jeans", "dam", "dam_thun", "dam_mexi"];
 function Women() {

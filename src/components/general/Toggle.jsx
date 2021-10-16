@@ -16,6 +16,11 @@ const Wrap = styled.button`
     i {
         font-size: 25px;
     }
+    @media screen and (max-width: 811px) {
+        position: fixed;
+        bottom: 7%;
+        right: 2%;
+    }
 `;
 
 function Toggle({setTheme, theme}) {
