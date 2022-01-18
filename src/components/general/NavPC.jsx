@@ -105,6 +105,7 @@ const Content = styled.div`
                             transform: translateY(-50px;)
                         }
                     }
+                    align-items: center;
                     display: flex;
                     font-size: 10px;
                     padding: 0px 5px;

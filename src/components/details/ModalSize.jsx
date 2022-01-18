@@ -70,14 +70,18 @@ const SizeClothes = styled.div`
     margin: auto;
     box-sizing: border-box;
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-        table tbody tr td {
-            :first-child {
-                width: 30px;
+        table {
+            width: 750px !important;
+            margin: auto;
+            tbody tr td {
+                :first-child {
+                    width: 30px;
+                }
+                .img_decription img {
+                    width: 90%;
+                }
+                width: 50px;
             }
-            .img_decription img {
-                width: 90%;
-            }
-            width: 50px;
         }
     }
 `;
@@ -85,7 +89,12 @@ const SizeShoes = styled.div`
     width: 95%;
     margin: auto;  
     box-sizing: border-box;
-
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        table {
+            width: 750px !important;
+            margin: auto;
+        }
+    }
 `;
 function ModalSize({setDisplay}) {
     let modal = useRef(null);
