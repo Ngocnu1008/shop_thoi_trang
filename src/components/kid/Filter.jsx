@@ -46,6 +46,10 @@ const Wrap = styled.div`
     }
     border: 1px solid gray;
     padding: 20px 20px;
+    @media screen and (max-width: 767px) {
+        width: 95%;
+        margin-top: 70px;
+    }
 `;
 function Filter({setFilter, data}) {
     const [price, setPrice] = useState({
@@ -62,14 +66,14 @@ function Filter({setFilter, data}) {
             return Swal.fire({
                 title: "Vui lòng chọn giá sản phẩm", 
                 icon: "warning",
-                confirmButtonText: "yes",
+                confirmButtonText: "Đồng ý",
             });
         }
         if(parseInt(price.min) < 0 || parseInt(price.max) < 0 || parseInt(price.max) <= parseInt(price.min)){
             return Swal.fire({
                 title: "Vui lòng chọn đúng giá sản phẩm", 
                 icon: "warning",
-                confirmButtonText: "yes",
+                confirmButtonText: "Đồng ý",
             });
         }
         let after_filter = [];

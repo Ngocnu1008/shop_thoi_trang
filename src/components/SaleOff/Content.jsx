@@ -4,10 +4,12 @@ import {female, male, children} from "../../data/saleoff"
 import {Link} from "react-router-dom"
 const BigWrap = styled.div`
     max-width: 80%;
-    @media screen and (max-width: 811px) {
-        margin-top: 20px !important;
-        max-width: 95%;
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        max-width: 100%;
         margin: auto;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        max-width: 80%;
     }
 `;
 const Wrap = styled.div`
@@ -16,19 +18,28 @@ const Wrap = styled.div`
     justify-content: space-between;
     width: 90%;
     margin-top: 25px;
-    @media screen and (max-width: 811px) {
-        width: 95%;
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        width: 90%;
         margin: auto;
-        margin-top: 20px;
+        margin-top: 40px !important;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 5%;
+        width: 97%;
     }
 `;
 const Title = styled.p`
     margin-top: 50px;
     text-transform: uppercase;
     font-weight: bold;
-    @media screen and (max-width: 811px) {
-        font-size: 14px;
-        margin-left: 10px;
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        font-size: 12px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 70px;
     }
 `;
 const Card = styled.div`
@@ -55,7 +66,7 @@ const Card = styled.div`
         font-size: 14px;
         margin-top: 5px;
     }
-    @media screen and (max-width: 811px) {
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         width: 47%;
         h3{
             font-size: 15px;
@@ -73,10 +84,23 @@ const Card = styled.div`
             width: 100%;
         }
     }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 30%;
+        img {
+            width: 100%;
+        }
+        h3 {
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
 `;
 function Content({gender}) {
     const [data, setData] = useState([]);
     useEffect(() =>{
+        window.scroll(0,0);
         switch(gender){
             case "nam":
                 setData(male);
@@ -97,7 +121,9 @@ function Content({gender}) {
                 data.map((value, index) =>{
                     return (
                         <Card key={index}>
-                            <img src={`/image/woman/top_collections/${value.image}`}/>
+                            <Link to={`/chi-tiet-sale-off/${gender}/${value.id}`}>
+                                <img src={`/image/woman/top_collections/${value.image}`}/>
+                            </Link>
                             <Link to={`/chi-tiet-sale-off/${gender}/${value.id}`}><h3>{value.name}</h3></Link>
                             <h4>{value.price}<sup>đ</sup></h4>
                             <p>199000đ (đồng giá)</p>

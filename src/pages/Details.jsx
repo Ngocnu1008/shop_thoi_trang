@@ -4,15 +4,16 @@ import { useParams } from 'react-router';
 import {news1, shirt, croptop, somi, vest, short, trousers, jeans, dam, dam_thun, dam_mexi} from "../data/do_nu";
 import Info from '../components/details/Info';
 import Protect from '../components/details/Protect';
-import ModalSize from '../components/details/ModalSize';
+// import ModalSize from '../components/details/ModalSize';
+import ModalSizeGeneral from "../components/details/ModalSizeGeneral";
 import Loading from '../components/Loading';
 const Wrap = styled.div`
     padding-top: 50px;
     width: 70%;
     display: flex;
     margin: auto;
-    @media screen and (max-width: 811px) {
-        padding-top: 100px;
+    @media screen and (min-device-width: 375px) and (max-device-width: 811px){
+        padding-top: 1px;
         display: block;
         width: 100%;
         margin: auto;
@@ -26,7 +27,7 @@ const Card = styled.div`
     h2 {
         text-transform: uppercase;
     }
-    @media screen and (max-width: 811px) {
+    @media screen and (min-device-width: 375px) and (max-device-width: 811px){
         width: 100%;
         margin: auto;
         img{
@@ -44,6 +45,7 @@ const Card = styled.div`
         }
     }
     @media screen and (max-width: 1023px) {
+        margin-top: 70px;
         h2 {
             margin-top: 10%;
             font-size: 20px;
@@ -144,9 +146,8 @@ function Details({setCount, count}) {
     const [display, setDisplay] = useState(0);
     let params = useParams();//params lúc này lấy ra được từ link to sau đó phải khớp với định nghĩa bên path sau dấu hai chấm (trường hợp này là type và id_sanpham, )
     console.log(params);
-    const {type, id_sanpham} = params;//params lúc này lấy ra là 1 cái type và id bất kỳ trong số 40 chục cái sản phẩm nên muốn lọc ra sp nào trùng
-    //với id và type thì phải dùng filter để lọc.
-    const [openModal, SetOpenModal]= useState(true);
+    const {type, id_sanpham} = params;//params lúc này lấy ra là 1 cái type và id cụ thể mà khi bấm vào tên chọn, lúc này lọc mảng shirt để tìm ra cái nào trùng với id đó
+    // const [openModal, SetOpenModal]= useState(true);
     const [relate, setRelate] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect (() => {
@@ -230,7 +231,7 @@ function Details({setCount, count}) {
             {data && data.map ((value) => {
                     return (
                         <Card key ={value}>
-                            <img src={`/image/woman/top_collections/${value.image}`}/>
+                            <img src={`/image/woman/top_collections/${value.image}`}/> 
                             <h2>{value.name}</h2>
                             <h3>{value.price}<sup>đ</sup></h3>
                         </Card>
@@ -245,11 +246,10 @@ function Details({setCount, count}) {
                </div>
                <div className="nav_content">
                    {
-                       display === 0 ? (<Info data = {data} CountCart={count} setCountCart={setCount}/>) : display === 1 ? (<Protect/>) : (<ModalSize setDisplay={setDisplay}/>)//(<ModalSize/>)
+                       display === 0 ? (<Info data = {data} CountCart={count} setCountCart={setCount}/>) : display === 1 ? (<Protect/>) : (<ModalSizeGeneral setDisplay={setDisplay}/>)
                    }
                </div>
            </Right>
-           {/* {openModal && <ModalSize setOpenModal={SetOpenModal}/>} */}
         </Wrap>
         <Title>Sản phẩm tương tự</Title>
         <Relate>
@@ -264,6 +264,7 @@ function Details({setCount, count}) {
                     )}
                 })}
         </Relate>)
+
         </>)}
         </>
     );

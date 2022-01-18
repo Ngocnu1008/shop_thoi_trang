@@ -58,10 +58,10 @@ function Info({data, setCountCart, countCart}) {
     } 
     const handleAddToCard = () => {
         if (size === "") {
-            return (alert ("please choose the size"));
+            return (alert ("Vui lòng chọn size sản phẩm"));
         }
-        let sanpham = JSON.parse(localStorage.getItem("sanpham"));
-            let info_product = {
+        let sanpham = JSON.parse(localStorage.getItem("sanpham"));//sanpham lúc này là một object 
+            let info_product = {//data[0]vì khi ktra lần đầu user chưa mua sp nào thì push info_product vào mảng sanpham, lúc này mảng có phần tử thứ 0
                 id: data[0].id,
                 name: data[0].name,
                 image: data[0].image,
@@ -74,6 +74,9 @@ function Info({data, setCountCart, countCart}) {
         if (sanpham){
             let check = sanpham.filter(
                 (value) => value.id === info_product.id && value.size === info_product.size);
+                 //hàm filter check này để ktra trong 1 dãy các phần tử trong object sanpham xem có phần tử nào trùng với cái infor_product không
+                //nếu check.length > 0 tức là có từ 1 trở lên (có thể có nhiều phần tử trong sanpham trùng), sau đó mới dùng vòng lặp for để
+                //lấy ra phần tử trùng đó và thêm count vào.
                 if (check.length > 0){
                     for (let i = 0; i < sanpham.length; i++){
                         if (info_product.id === sanpham[i].id && info_product.size === sanpham[i].size){
@@ -88,10 +91,10 @@ function Info({data, setCountCart, countCart}) {
             localStorage.setItem("sanpham", JSON.stringify([info_product]));
         }
         Swal.fire({
-            title: "Add to cart?", 
-            text: "successfully",
+            title: "Thêm vào giỏ hàng", 
+            text: "Thành công",
             icon: "success",
-            confirmButton: "yes",
+            confirmButton: "Đồng ý",
         })
         .then ((result)=>{
             if (result.isConfirmed){
@@ -133,8 +136,8 @@ function Info({data, setCountCart, countCart}) {
                     <button onClick ={() => handleChangeCount ("+")} disabled = {count === 10 ? true : false}>+</button>
                 </div>
                 <div className="buy">
-                    <button>BUY</button>
-                    <button onClick={handleAddToCard}>ADD TO CART</button>
+                    <button>MUA</button>
+                    <button onClick={handleAddToCard}>THÊM SẢN PHẨM</button>
                 </div>
             </Options>
        </Wrap>

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const Wrap = styled.div`
     width: 100%;
-    // background: black;
     padding: 15px;
 `;
 const Header = styled.div`
@@ -27,7 +26,8 @@ const Header = styled.div`
     }
 `;
 const Content = styled.div`
-    width: 55%;
+    width: 57%;
+    border-radius: 15px;
     margin: auto;
     margin: 2% 0%;
     padding: 10px 0px;
@@ -45,6 +45,16 @@ const Content = styled.div`
     table tr td {
         padding: 8px;
     }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 97%;
+        margin-top: -200px;
+        padding-left: -10px;
+        position: fixed;
+        top: 67%;
+        left: 50%;
+        overflow-y: scroll;
+        height: 1050px;
+    }
 `;
 const Background = styled.div`
     width: 100%;
@@ -59,6 +69,17 @@ const SizeClothes = styled.div`
     width: 95%;
     margin: auto;
     box-sizing: border-box;
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        table tbody tr td {
+            :first-child {
+                width: 30px;
+            }
+            .img_decription img {
+                width: 90%;
+            }
+            width: 50px;
+        }
+    }
 `;
 const SizeShoes = styled.div`
     width: 95%;
@@ -161,8 +182,8 @@ useEffect (() =>{
                         </tr>
                         <tr>
                             <td rowSpan="3">STT</td>
-                            <td rowSpan="3">tên gọi</td>
-                            <td colSpan="5" rowSpan="2">size</td>
+                            <td rowSpan="3">Tên gọi</td>
+                            <td colSpan="5" rowSpan="2">Size</td>
                         </tr>
                         <tr></tr>
                         <tr>
@@ -197,10 +218,7 @@ useEffect (() =>{
                             <td>72</td>
                             <td>76</td>
                             <td>80</td>
-                            <td>
-                                <p>84</p>
-                                <p>&nbsp;</p>
-                            </td>
+                            <td>84</td>
                         </tr>
                         <tr>
                             <td>4</td>

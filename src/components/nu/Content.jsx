@@ -8,13 +8,15 @@ import Notfound from './Notfound';
 const Wrap = styled.div`
     max-width: 80%;
     position: relative;
-    @media screen and (max-width: 811px){
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         max-width: 100%;
         margin-left: 5%; 
+        margin-top: 40px;
         position: relative;
     }
-    @media screen and (max-width: 1023px) {
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         position: relative;
+        max-width: 80%;
     }
 `;
 const General = styled.div` 
@@ -37,8 +39,8 @@ const General = styled.div`
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 0 10%;
             width: 250px;
+            margin: 0% 10%;
             p {
                 margin: 0 10px;
             }
@@ -50,28 +52,25 @@ const General = styled.div`
     div:hover{
         cursor: pointer;
     }
-    @media screen and (max-width: 811px){
-        margin-top: 80px;
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        margin-top: 30px;
         display: block;
         h3{
             font-size: 15px;
         }
         .options {
-            width: 320px;
+            width: 305px;
             margin: auto !important;
-            margin-left: 10px;
             display: flex;
-            margin-right: 0px;
             position: absolute;
             left: 0px;
-            top: 115px;
+            top: 70px;
             div{
                 :last-child {
                     margin-left: 25px;
                 }
                 padding: 5px 3px;
-                margin: 0 5%;
-                width: 150px;
+                margin: 0 0%;
                 p {
                     margin: 0 10px;
                 }
@@ -81,13 +80,18 @@ const General = styled.div`
             }
         }
     }
-    // @media screen and (max-width: 1023px) {
-    //     .options {
-    //         position: absolute;
-    //         left: 17%;
-    //         top: 2.4%;
-    //     }
-    // }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 80px;
+        .options {
+            position: absolute;
+            left: 23%;
+            top: 5%;
+            div {
+                margin: 0% 5%;
+                width: 200px;
+            }
+        }
+    }
 `;
 const Products = styled.div`
     display: flex;
@@ -95,11 +99,13 @@ const Products = styled.div`
     justify-content: space-between;
     width: 90%;
     margin-top: 25px;
-    @media screen and (max-width: 811px) {
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         margin-top: 20%;
+        width: 93%;
     }
-    @media screen and (max-width: 1023px) {
-        margin-top: 20%;
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 5%;
+        width: 100%;
     }
 `;
 const Card = styled.div`
@@ -122,7 +128,7 @@ const Card = styled.div`
     h4 {
         font-weight: 400;
     }
-    @media screen and (max-width: 811px) {
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         width: 47%;
         h3{
             font-size: 15px;
@@ -130,12 +136,24 @@ const Card = styled.div`
             overflow: hidden;//chữ nhiều sẽ bị tràn bên phải làm xấu web
             text-overflow: ellipsis;//hiển thị ... nếu chữ không hiển thị hết
         }
+        h4{
+            font-size: 15px;
+        }
+        p{
+            font-size: 12px;
+        }
     }
-    h4{
-        font-size: 15px;
-    }
-    p{
-        font-size: 12px;
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 30%;
+        img {
+            width: 100%;
+        }
+        h3 {
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 `;
 function Content({type}) {
@@ -148,7 +166,7 @@ function Content({type}) {
         switch (type) {
             case "shirt":
                 setData(shirt);
-                setFilter(shirt);
+                setFilter(shirt);//lúc đầu khi chưa bám filter thì mảng này bằng data luôn nên phải giữ data làm mảng gốc để lọc sau đó 
                 setTitle("Áo nữ");
                 break;
             case "croptop":
@@ -203,12 +221,6 @@ function Content({type}) {
         }
     },[type]);
 
-
-    // const [count, setCount] = useState(0);
-
-    // const handleClick = () => {
-    //     setCount(count + 1);
-    // }
     const handleDisplayFilter = (state) => {
         if(state === "1"){
             setDisplay(!display);
@@ -241,7 +253,9 @@ function Content({type}) {
                     filter.map ((value, index) => {
                         return (
                             <Card key={index}>
-                                <img src={`/image/woman/top_collections/${value.image}`}/>
+                                <Link to={`/chi-tiet-hang-nu/${type}/${value.id}`}>
+                                    <img src={`/image/woman/top_collections/${value.image}`}/>
+                                </Link>
                                 <Link to={`/chi-tiet-hang-nu/${type}/${value.id}`}><h3>{value.name}</h3></Link>
                                 <h4>{value.price}<sup>đ</sup></h4>
                                 <p>_new_</p>

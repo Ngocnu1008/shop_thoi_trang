@@ -33,6 +33,16 @@ const Wrap = styled.div`
         }
 
     }
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        display: none;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        margin: 80px 10px 0px 2px;
+        li {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+    }
 `;
 function SideBar(props) {
     return (

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const Wrap = styled.div`
     width: 100%;
-    // background: black;
     padding: 15px;
 `;
 const Header = styled.div`
@@ -26,9 +25,10 @@ const Header = styled.div`
     }
 `;
 const Content = styled.div`
-    width: 55%;
+    width: 57%;
+    border-radius: 15px;
     margin: auto;
-    margin-top: 2%;
+    margin: 2% 0%;
     padding: 10px 0px;
     background: white;
     color: black;
@@ -44,6 +44,15 @@ const Content = styled.div`
     table tr td {
         padding: 8px;
     }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 95%;
+        margin-top: -200px;
+        position: fixed;
+        top: 67%;
+        left: 50%;
+        overflow-y: scroll;
+        height: 1050px;
+    }
 `;
 const Background = styled.div`
     width: 100%;
@@ -58,6 +67,17 @@ const SizeClothes = styled.div`
     width: 95%;
     margin: auto;
     box-sizing: border-box;
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        table tbody tr td {
+            :first-child {
+                width: 30px;
+            }
+            .img_decription img {
+                width: 90%;
+            }
+            width: 50px;
+        }
+    }
 `;
 const SizeShoes = styled.div`
     width: 95%;
@@ -65,14 +85,14 @@ const SizeShoes = styled.div`
     box-sizing: border-box;
 
 `;
-function Sizetable({setOpenSize}) {
+function Sizetable({setDisplay}) {
     const handleCloseSize = () =>{
-        setOpenSize(false);
+        setDisplay(0);
     }
     let modal = useRef(null);
     const handleOut = (e) =>{
         if(modal.current && !modal.current.contains(e.target)){
-            setOpenSize(false);
+            setDisplay(0);
         }
     }
     useEffect(()=>{
@@ -190,10 +210,7 @@ function Sizetable({setOpenSize}) {
                             <td>72</td>
                             <td>76</td>
                             <td>80</td>
-                            <td>
-                                <p>84</p>
-                                <p>&nbsp;</p>
-                            </td>
+                            <td>84</td>
                         </tr>
                         <tr>
                             <td>4</td>
@@ -231,12 +248,12 @@ function Sizetable({setOpenSize}) {
                                 </tr>
                                 <tr>
                                     <td>CHIỀU DÀI BÀN CHÂN (cm)</td>
-                                    <td>20,5</td>
+                                    <td>20.5</td>
                                     <td>21.5</td>
-                                    <td>22-22,5</td>
+                                    <td>22-22.5</td>
                                     <td>23</td>
-                                    <td>23,8-24,1</td>
-                                    <td>24,5</td>
+                                    <td>23.8-24.1</td>
+                                    <td>24.5</td>
                                 </tr>
                                 
                             </tbody>

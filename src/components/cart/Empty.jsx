@@ -12,14 +12,29 @@ const Wrap = styled.div`
             text-decoration: none;
         }
     }
-
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        width: 100%;
+        margin: auto;
+        padding-top: 20px;
+        h3 {
+            font-size: 10px;
+        }
+        a {
+            font-size: 9px;
+         }
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 100%;
+        margin: auto;
+        padding-top: 50px;
+    }
 `;
 function Empty(props) {
     return (
         <Wrap>
             <div className="content">
                 <h3>Vui lòng chọn sản phẩm</h3>
-                <Link to="/">Shop Now</Link>
+                <Link to="/">Mua sắm ngay</Link>
             </div>
         </Wrap>
     );

@@ -56,7 +56,7 @@ function Info({data, setCountCart, countCart}) {
     }
     const handleAddtocard = () => {
         if (size === ""){
-            return (alert("Please choose the size"));
+            return (alert("Vui lòng chọn size sản phẩm"));
         }
         let sanpham = JSON.parse(localStorage.getItem("sanpham"));
             let info_product = {
@@ -86,10 +86,10 @@ function Info({data, setCountCart, countCart}) {
                localStorage.setItem("sanpham", JSON.stringify([info_product]));
            }
             Swal.fire({
-                title: "Add to cart?",
-                text: "successfullu", 
+                title: "Thêm vào giỏ hàng",
+                text: "Thành công", 
                 icon: "success", 
-                confirmbutton: "yes",
+                confirmbutton: "Đồng ý",
             })
             .then ((result) => {
                 if (result.isConfirmed){
@@ -129,8 +129,8 @@ function Info({data, setCountCart, countCart}) {
                 <button onClick={() => handleCount("+")} disabled ={count === 10 ? true : false}>+</button>
             </div>
             <div className="buy">
-                <button>BUY</button>
-                <button onClick={handleAddtocard}>ADD TO CART</button>
+                <button>MUA</button>
+                <button onClick={handleAddtocard}>THÊM SẢN PHẨM</button>
             </div>
             
         </Options>

@@ -8,14 +8,16 @@ import Notfound from '../nu/Notfound';
 const Wrap = styled.div`
     max-width: 80%;
     position: relative;
-    @media screen and (max-width: 811px){
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         max-width: 100%;
         margin-left: 5%;
+        margin-top: 40px;
         position: relative;
     }
-    // @media screen and (max-width: 1023px) {
-    //     position: relative;
-    // }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        position: relative;
+        max-width: 80%;
+    }
 `;
 const General = styled.div`
     cursor: pointer;
@@ -50,28 +52,25 @@ const General = styled.div`
     div:hover{
         cursor: pointer;
     }
-    @media screen and (max-width: 811px){
-        margin-top: 80px;
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        margin-top: 30px;
         display: block;
         h3{
             font-size: 15px;
         }
         .options {
-            width: 320px;
+            width: 305px;
             margin: auto !important;
-            margin-left: 10px;
             display: flex;
-            margin-right: 0px;
             position: absolute;
             left: 0px;
-            top: 115px;
+            top: 70px;
             div{
-                :last-child{
+                :last-child {
                     margin-left: 25px;
                 }
                 padding: 5px 3px;
-                margin: 0 5%;
-                width: 150px;
+                margin: 0 0%;
                 p {
                     margin: 0 10px;
                 }
@@ -81,13 +80,18 @@ const General = styled.div`
             }
         }
     }
-    // @media screen and (max-width: 1023px) {
-    //     .options {
-    //         position: absolute;
-    //         left: 17%;
-    //         top: 2.4%;
-    //     }
-    // }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 80px;
+        .options {
+            position: absolute;
+            left: 23%;
+            top: 5%;
+            div {
+                margin: 0% 5%;
+                width: 200px;
+            }
+        }
+    }
 `;
 const Products = styled.div`
     display: flex;
@@ -95,12 +99,14 @@ const Products = styled.div`
     justify-content: space-between;
     width: 90%;
     margin-top: 25px;
-    @media screen and (max-width: 811px) {
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         margin-top: 20%;
+        width: 93%;
     }
-    // @media screen and (max-width: 1023px) {
-    //     margin-top: 10%;
-    // }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 5%;
+        width: 100%;
+    }
 `;
 const Card = styled.div`
     width: 23%;
@@ -122,7 +128,7 @@ const Card = styled.div`
     h4{
         font-weight: 400;
     }
-    @media screen and (max-width: 811px) {
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         width: 47%;
         h3{
             font-size: 15px;
@@ -136,6 +142,18 @@ const Card = styled.div`
     }
     p{
         font-size: 12px;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 30%;
+        img {
+            width: 100%;
+        }
+        h3 {
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 `;
 
@@ -235,7 +253,9 @@ function Content({type}) {
                     filter.map ((value, index) => {
                         return (
                             <Card key={index}>
-                                <img src={`/image/woman/top_collections/${value.image}`}/>
+                                <Link to ={`/chi-tiet-hang-nam/${type}/${value.id}`}>
+                                    <img src={`/image/woman/top_collections/${value.image}`}/>
+                                </Link>
                                 <Link to ={`/chi-tiet-hang-nam/${type}/${value.id}`}><h3>{value.name}</h3></Link>
                                 <h4>{value.price}<sup>đ</sup></h4>
                                 <p>_new_</p>

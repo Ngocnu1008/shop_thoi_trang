@@ -5,7 +5,9 @@ import Content from "../components/collections/Content";
 import Sidebar from "../components/collections/Sidebar"
 
 const Wrap = styled.div`
-@media screen and (max-width: 811px) {
+@media screen and (min-device-width: 375px) and (max-device-width: 767px){
+    width: 90%;
+    margin: auto;
     margin-top: 70px;
 }
 `;

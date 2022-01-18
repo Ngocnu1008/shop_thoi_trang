@@ -22,6 +22,20 @@ const Sort = styled.div`
         transition: smooth;
         }
     }
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        width: 141px !important;
+        button {
+            width: 135px !important;
+            font-size: 12px;
+            padding: 3px 1px;
+        }
+        position: absolute;
+        left: 45.6%;
+    }
+    @media screen and (min-device-width: 768px) and (max-width: 1023px)  {
+        left: 50%;
+        width: 160px !important;
+    } 
 `;
 function SortKid({setFilter, data}) {
     const handleSort = (state) => {

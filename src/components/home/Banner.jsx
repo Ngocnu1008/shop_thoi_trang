@@ -22,7 +22,7 @@ const Banner = () => {
         Aos.init({duration: 1500})
     })
     return (
-        <Wrap  data-aos="fade-up">
+        <Wrap  data-aos="fade-down">
             {/* <img src="https://pubcdn.ivymoda.com/files/news/2021/09/14/e6755c46cb2b66236e9142a6a5b3fdf7.jpg" alt=""/> */}
             <Carousel autoPlay={true} infiniteLoop={true} showThumbs = {false} interval={2000}>
                 <Link to="/hang-nam/news">

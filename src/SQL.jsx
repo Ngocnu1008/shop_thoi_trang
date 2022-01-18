@@ -1,3 +1,4 @@
+// SQL NGÔN NGỮ TRUY VẤN CÓ QUAN HỆ
 // POSTGRE: 
 // CREATE TABLE product (
 // 	id varchar primary key,
@@ -16,10 +17,16 @@
 // SELECT price FROM product WHERE id = 'SanphamD'
 //Update và Delete phải có điều kiện phía sau!
 // UPDATE product SET name_product = 'dam nu' WHERE id='Sanphamc'
-// UPDATE product SET name_prodcut = 'gi do' --Khong co dk thi se bi update het
+// UPDATE product SET name_product = 'gi do' --Khong co dk thi se bi update het
 // DELETE FROM product WHERE id='Sanphamc'
-//primary key & foreign key:
-//MQH trong cơ sở dữ liệu SQL: 1 - 1; 1 - nhiều; nhiều - nhiều
+
+//PRIMARY KEY: khóa chính không bị trùng nhau, nếu đặt là serial thì trường có khóa chính sẽ tự động tăng dần 
+//& FOREIGN KEY: dùng để liên kết với các mảng, table khác.
+//MQH TRONG CƠ SỞ DỮ LIỆU SQL: 
+//1 - 1: 1 người mua 1 sp có 1 id duy nhất. 
+// 1 - nhiều: một sản phẩm có 1 id đó có thể được bán cho nhiều người.
+// nhiều - nhiều: một người có thể mua nhiều sản phẩm và một sp có thể bán cho nhiều người.
+
 //select * from product
 
 // insert into product (id, name_product, price, parent_type, type) 
@@ -43,7 +50,7 @@
 // select * from product where id not in ('4', '5') -- cho kq ngoài những id này
 
 // select * from product as pro
-// --alias
+// ALIAS--alias
 // select product.id, product.price from product
 
 // select id, price from product -- viết gọn của product.id, product.price
@@ -98,6 +105,71 @@
 // insert into buy (id_san_pham, so_luong, ngay_mua, size, color)
 // values ('15', 10, '2021-11-10', 'm', 'yellow')
 
+//Foreign key phải được tham chiếu đến primary key của bảng được liên kết, vì vậy bảng mẹ được liên kết phải được đặt primary key trước.
 
+
+// select * from buy
+
+// create table product(
+// 	id varchar (255) primary key unique not null,
+// 	ten_san_pham varchar (255) not null, 
+// 	gia int not null,
+// 	id_loai_cha int not null,
+// 	loai varchar (255)
+// )
+// alter table product add column ton_kho boolean
+
+// select * from product 
+
+// drop table buy
+
+// create table loai_cha (
+// 	id serial,
+// 	ten_loai varchar (255)
+// )
+// create table orders(
+// 	id_san_pham varchar (255),
+// 	so_luong int default 1, 
+// 	ngay_mua date, 
+// 	size varchar (20), 
+// 	color varchar (20) default 'white'
+// )
+
+// INSERT INTO public.product(
+// 	id, ten_san_pham, gia, id_loai_cha, ton_kho)
+// 	VALUES ('id6','Ao so mi nu', '250000', 1, false);
+// select * from product
+// update product set id_loai_cha = '2' where id ='id6'
+
+// select product.ten_san_pham, product.gia, loai_cha.ten_loai 
+// from loai_cha
+// join product 
+// on loai_cha.id = product.id_loai_cha
+// where product.id_loai_cha = 1
+
+// select * from loai_cha 
+// join product 
+// on loai_cha.id = product.id_loai_cha
+
+// order by product.gia asc --sắp xếp từ thấp đến cao/desc từ thấp đến cao
+
+// --ADIAS đặt tên table ngắn gọn "as" 
+// select * from loai_cha as lc
+// join product as pro 
+// on lc.id = pro.id_loai_cha
+// order by pro.gia desc
+
+// --join 3 table voi nhau co MQH lien ket 
+// select * from orders as od
+// join product pr
+// on od.id_san_pham = pr.id
+// join loai_cha as lc
+// on lc.id = pr.id_loai_cha
+
+// select * from product 
+// join loai_cha 
+// on product.id_loai_cha = loai_cha.id
+
+// --Nghiên cứu import dữ liệu vào Postgre
 
 

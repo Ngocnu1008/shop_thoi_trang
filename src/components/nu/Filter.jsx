@@ -68,17 +68,15 @@ function Filter({setFilter, data}) {
             return Swal.fire({
                 title: "Vui lòng chọn giá sản phẩm",
                 icon: "warning",
-                confirmButtonText: "yes",
+                confirmButtonText: "Đồng ý",
             });
         }
-        if(parseInt(price.max) <= parseInt(price.min) ||
-        price.max < 0 ||
-        price.min < 0
+        if(parseInt(price.max) <= parseInt(price.min) || price.min < 0
         ) {
             return Swal.fire({
                 title: "Vui lòng chọn đúng giá sản phẩm",
                 icon: "warning",
-                confirmButtonText: "yes",
+                confirmButtonText: "Đồng ý",
             }).then(() =>{
                 return;
             });
@@ -90,7 +88,6 @@ function Filter({setFilter, data}) {
             }
         }
         setFilter(after_filter);
-        console.log(after_filter);
     };
     return (
         <>

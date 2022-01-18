@@ -18,6 +18,7 @@ function Women() {
     const [type, setType] = useState("news");
     const [redirect, setRedirect] = useState(false);
     let params = useParams();
+    console.log(params);
     useEffect (() => {
         let check = standard.includes(params.type);
         if(!check){

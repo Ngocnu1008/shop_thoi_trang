@@ -4,18 +4,21 @@ import styled from 'styled-components';
 import {newpolo, somi, polo, thun, news2, jeans, long_trousers, shoes, short, suit, accessory} from "../data/do_nam";
 import Info from '../components/detailsNam/Infor';
 import Protection from '../components/detailsNam/protection';
-import Sizereference from '../components/detailsNam/Sizereference';
+import SizeReferenceGeneral from '../components/detailsNam/SizeReferenceGeneral';
 import Loading from '../components/Loading';
 const Wrap = styled.div`
     padding-top: 50px;
     width: 70%;
     display: flex;
     margin: auto;
-    @media screen and (max-width: 811px) {
-        padding-top: 100px;
+    @media screen and (min-device-width: 375px) and (max-device-width: 811px){
+        padding-top: 30px;
         display: block;
         width: 100%;
         margin: auto;
+    }
+    @media screen and (max-width: 1023px) {
+        padding-top: 50px;
     }
 `;
 const Left = styled.div`
@@ -24,6 +27,9 @@ const Left = styled.div`
     @media screen and (max-width: 811px) {
         width: 80%;
         margin: auto;
+    }
+    @media screen and (min-width-device: 767px) and (max-width-device: 1023px) {
+        margin-left: 5%;
     }
 `;
 const Right = styled.div`
@@ -61,7 +67,7 @@ const Card = styled.div`
         text-transform: uppercase;
         margin-top: 10px;
     }
-    @media screen and (max-width: 811px) {
+    @media screen and (min-device-width: 375px) and (max-device-width: 811px){
         width: 100%;
         margin: auto;
         img{
@@ -86,7 +92,7 @@ const Title = styled.p`
     text-transform: uppercase;
     font-weight: bold;   
     @media screen and (max-width: 811px)  {
-        width: 80%;
+        width: 90%;
     }  
 `;
 const Below = styled.div`
@@ -119,7 +125,7 @@ const Card1 = styled.div`
     @media screen and (max-width: 811px) {
         width: 100%;
         margin: auto;
-        margin-top: 30px;
+        margin-top: 50px;
         h2 {
             margin-top: 20px;
         }
@@ -135,11 +141,10 @@ function DetailsNam({setCount, count}) {
     const {type, id_sanpham} = params;
     const [display, setDisplay] = useState(0);
     const [relate, setRelate] = useState([]);
-    const [openSize, setOpenSize] = useState(false);
     const [loading, setLoading] = useState(true);
     const handleChangeOptions = (state) => {
         if (state === 2) {
-            setOpenSize(true);
+            setDisplay(2);
         }else {
             setDisplay(state);
         }
@@ -236,10 +241,9 @@ function DetailsNam({setCount, count}) {
                         <button onClick = {() => {handleChangeOptions(2)}} className={display === 2 ? "active1" : ""}>Tham khảo sai</button>
                     </div>
                     <div className="nav_content">
-                            {display === 0 ? (<Info data={data} setCountCart={setCount} countCart={count}/>) : display === 1 ? (<Protection/>) : "" }
+                            {display === 0 ? (<Info data={data} setCountCart={setCount} countCart={count}/>) : display === 1 ? (<Protection/>) : <SizeReferenceGeneral setDisplay={setDisplay}/> }
                     </div>
                 </Right>
-                {openSize && <Sizereference setOpenSize={setOpenSize}/> }
             </Wrap>
             <Title>SẢN PHẨM TƯƠNG TỰ</Title>
             <Below>

@@ -20,8 +20,26 @@ const Wrap = styled.div`
         margin: 30px 0px;
         font-size: 15px;
     }
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px) {
+        width: 90%;
+        margin: auto;
+    }
 `;
-const Container = styled.div``;
+const Container = styled.div`
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px) {
+        .image {
+            width: 80%;
+            margin-left: 10%; 
+            img {
+                width: 100%;
+            }
+        }
+        h4{
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    }
+`;
 function DetailsNews(props) {
     const [data, setData] = useState([]);
     let params = useParams();
@@ -42,21 +60,21 @@ function DetailsNews(props) {
                         <h4>Các mẫu áo sơ mi trễ vai sang trọng, nữ tính</h4>
                         <h5>Áo sơ mi lệch vai 1 bên</h5>
                         <p>Thiết kế bất đối xứng luôn mang tới một hình ảnh thời trang đầy mới mẻ cho người đối diện. Với dạng áo sơ mi lệch vai bên kín bên hở không theo quy chuẩn mang lại nét vương giả, cùng nhan sắc quyến rũ cho người mặc.</p>
-                        <img src={`/image/news/${value.image1}`}/>
+                        <div className='image'><img src={`/image/news/${value.image1}`}/></div>
                         <h5>Áo sơ mi lệch vai 2 bên</h5>
                         <p>Thiết kế áo sơ mi trễ vai kế hợp phần dây 2 bên tạo cảm giác an toàn cho người mặc. Phần dây 2 bên vai giúp cố định áo đồng thời tạo cho người mặc một vẻ ngoài quyến rũ, gợi cảm. Thật không ngoa khi nói kiểu áo này là trang phục nữ hoàng dành cho sự nữ tính.</p>
-                        <img src={`/image/news/${value.image1a}`}/>
+                        <div className='image'><img src={`/image/news/${value.image1a}`}/></div>
                         <h5>Áo sơ mi lệch vai tay dài</h5>
                         <p>Thiết kế áo sơ mi trễ vai kế hợp phần dây 2 bên tạo cảm giác an toàn cho người mặc. Phần dây 2 bên vai giúp cố định áo đồng thời tạo cho người mặc một vẻ ngoài quyến rũ, gợi cảm. Thật không ngoa khi nói kiểu áo này là trang phục nữ hoàng dành cho sự nữ tính.</p>
-                        <img src={`/image/news/${value.image1b}`}/>
-                        <h4>8 cách mix đồ giúp bạn nổi bật với áo sơ mi trễ vai</h4>
+                        <div className='image'><img src={`/image/news/${value.image1b}`}/></div>
+                        <h4>Những cách mix đồ giúp bạn nổi bật với áo sơ mi trễ vai</h4>
                         <h5>Mix áo sơ mi trễ vai cùng chân váy chữ A tôn dáng</h5>
                         <p>Thiết kế áo sơ mi trễ vai kế hợp phần dây 2 bên tạo cảm giác an toàn cho người mặc. Phần dây 2 bên vai giúp cố định áo đồng thời tạo cho người mặc một vẻ ngoài quyến rũ, gợi cảm. Thật không ngoa khi nói kiểu áo này là trang phục nữ hoàng dành cho sự nữ tính.</p>
-                        <img src={`/image/news/${value.image1c}`}/>
+                        <div className='image'><img src={`/image/news/${value.image1c}`}/></div>
                         <p>Thiết kế áo sơ mi trễ vai kế hợp phần dây 2 bên tạo cảm giác an toàn cho người mặc. Phần dây 2 bên vai giúp cố định áo đồng thời tạo cho người mặc một vẻ ngoài quyến rũ, gợi cảm. Thật không ngoa khi nói kiểu áo này là trang phục nữ hoàng dành cho sự nữ tính.</p>
                         <h5>Mix áo sơ mi trễ vai cùng chân váy chữ A tôn dáng</h5>
                         <p>Thiết kế áo sơ mi trễ vai kế hợp phần dây 2 bên tạo cảm giác an toàn cho người mặc. Phần dây 2 bên vai giúp cố định áo đồng thời tạo cho người mặc một vẻ ngoài quyến rũ, gợi cảm. Thật không ngoa khi nói kiểu áo này là trang phục nữ hoàng dành cho sự nữ tính.</p> 
-                        <img src={`/image/news/${value.image1d}`}/>
+                        <div className='image'><img src={`/image/news/${value.image1d}`}/></div>
                     </Container>
                 )
             })}

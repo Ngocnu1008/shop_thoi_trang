@@ -3,8 +3,9 @@ import { useParams } from 'react-router';
 import styled from 'styled-components';
 import {male, female, children} from "../data/saleoff";
 import Info from "../components/DetailsSaleOff/Info"
-import TableSize from "../components/DetailsSaleOff/TableSize";
+import TableSizeGeneral from '../components/DetailsSaleOff/TableSizeGeneral';
 import Protection from "../components/DetailsSaleOff/Protection";
+import Loading from '../components/Loading';
 
 const Wrap = styled.div`
     padding-top: 50px;
@@ -12,7 +13,7 @@ const Wrap = styled.div`
     display: flex;
     margin: auto;
     @media screen and (max-width: 811px) {
-        padding-top: 100px;
+        padding-top: 50px;
         display: block;
         width: 100%;
         margin: auto;
@@ -80,6 +81,7 @@ const Card = styled.div`
 `;
 
 function DetailsSaleOff({count, setCount}) {
+    const [loading, setLoading] = useState(true);
     const [display, setDisplay] = useState(0);
     const [data, setData] = useState([]);
     let params = useParams();
@@ -88,6 +90,10 @@ function DetailsSaleOff({count, setCount}) {
         setDisplay(state);
     }
     useEffect(() => {
+        setTimeout(() =>{
+            setLoading(false);
+        }, 1000)
+        window.scroll(0,0);
         switch(gender) {
             case "nam":
                 var details = male.filter((value) => value.id === parseInt(id_sanpham));
@@ -103,30 +109,35 @@ function DetailsSaleOff({count, setCount}) {
         }
     }, [params]);
     return (
-       <Wrap>
-           <Left>
-               {data &&
-               data.map((value) =>{
-                   return(
-                       <Card key={value}>
-                           <img src={`/image/woman/top_collections/${value.image}`}/>
-                           <h2>{value.name}</h2>
-                           <h3>{value.price}<sup>đ</sup></h3>
-                       </Card>
-                   )
-               })}
-           </Left>
-           <Right>
-               <div className="nav_title">
-                    <button onClick={() => {handleChangeOptions(0)}} className={display === 0 ? "active1" : ""}>Chi tiết</button>
-                    <button onClick={() => {handleChangeOptions(1)}} className={display === 1 ? "active1" : ""}>Bảo quản</button>
-                    <button onClick={() => {handleChangeOptions(2)}}>Tham khảo size</button>
-               </div>
-               <div className="nav_content">
-                    {display === 0 ? (<Info setCountCart={setCount} countCart={count} data={data}/>) : display === 1 ? (<Protection/>) : (<TableSize setDisplay={setDisplay}/>)}
-               </div>
-           </Right>
-       </Wrap>
+        <>
+        {loading ? <Loading/> 
+        : (
+            <Wrap>
+                <Left>
+                    {data &&
+                    data.map((value) =>{
+                        return(
+                            <Card key={value}>
+                                <img src={`/image/woman/top_collections/${value.image}`}/>
+                                <h2>{value.name}</h2>
+                                <h3>{value.price}<sup>đ</sup></h3>
+                            </Card>
+                        )
+                    })}
+                </Left>
+                <Right>
+                    <div className="nav_title">
+                            <button onClick={() => {handleChangeOptions(0)}} className={display === 0 ? "active1" : ""}>Chi tiết</button>
+                            <button onClick={() => {handleChangeOptions(1)}} className={display === 1 ? "active1" : ""}>Bảo quản</button>
+                            <button onClick={() => {handleChangeOptions(2)}}>Tham khảo size</button>
+                    </div>
+                    <div className="nav_content">
+                            {display === 0 ? (<Info setCountCart={setCount} countCart={count} data={data}/>) : display === 1 ? (<Protection/>) : (<TableSizeGeneral setDisplay={setDisplay}/>)}
+                    </div>
+                </Right>
+            </Wrap>
+        )}
+       </>
     );
 }
 

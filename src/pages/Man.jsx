@@ -19,6 +19,7 @@ function Man(props) {
     useEffect(() =>{
         setType(params.type);
     },[params]);
+    console.log(params);
     useEffect(() => {
         window.scroll(0,0);
         setTimeout(()=> {

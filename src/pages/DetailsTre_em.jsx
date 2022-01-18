@@ -4,17 +4,29 @@ import styled from 'styled-components';
 import {shirt, dream, phu_kien, skirt, trousers, news3, boy_phu_kien, boy_shirt, boy_trousers} from "../data/do_tre_em";
 import Info from "../components/detailsTre_em/Info";
 import Protect from "../components/detailsTre_em/Protect"
-import Sizetable from '../components/detailsTre_em/Sizetable';
+import SizeTableGeneral from "../components/detailsTre_em/SizeTableGerenal";
 import Loading from '../components/Loading';
 
 const Wrap = styled.div`
     padding-top: 50px;
     width: 70%;
     display: flex;
-    margin: auto;`;
+    margin: auto;
+    @media screen and (max-width: 811px) {
+        padding-top: 50px;
+        display: block;
+        width: 100%;
+        margin: auto;
+    }
+`;
+    
 const Left = styled.div`
     width: 50%;
     text-align: center;
+    @media screen and (max-width: 811px) {
+        width: 80%;
+        margin: auto;
+    }
 `;
 const Right = styled.div`
     width: 50%;
@@ -30,17 +42,44 @@ const Right = styled.div`
             font-size: 16px;
         }
     }
+    @media screen and (max-width: 811px) {
+        width: 90%;
+        margin-top: 15% !important;
+        margin: auto;
+        .nav_title{
+            width: 100%;
+            button {
+                font-size: 14px;
+            }
+        }
+    }
 `;
 const Card = styled.div`
     width: 100%;
-    // margin: 0 0.5%;
     img {
         width: 50%;
     }
     h2 {
         text-transform: uppercase;
-    }`
-;
+    }
+    @media screen and (max-width: 811px) {
+        width: 100%;
+        margin: auto;
+        img{
+            width: 100%;
+        }
+        h2 {
+            font-size: 18px;
+            margin: 15% 0% 2% 0%;
+        }
+        h3 {
+            font-size: 17px;
+        }
+        sup {
+            font-size: 17px;
+        }
+    }
+`;
 const Relate = styled.div`
     padding-top: 20px;
     width: 80%;
@@ -68,6 +107,17 @@ const Card1 = styled.div`
         margin-top: 2px;
         font-weight: 400;
     }
+    @media screen and (max-width: 811px) {
+        width: 100%;
+        margin: auto;
+        margin-top: 30px;
+        h2 {
+            margin-top: 20px;
+        }
+        h3 {
+            font-size: 16px;
+        }
+    }
 `;
 const Title = styled.p`
     width: 80%;
@@ -75,13 +125,18 @@ const Title = styled.p`
     margin: auto;
     text-transform: uppercase;
     font-weight: bold;
+    @media screen and (max-width: 811px)  {
+        width: 80%;
+    }
+    @media screen and (max-width: 1023px)  {
+        width: 90%;
+    } 
 `;
 function DetailsTre_em({setCount, count}) {
     const [data, setdata] = useState([]);
     const [loading, setLoading] = useState(true);
     const [relate, setRelate] = useState([]);
     const [display, setDisplay] = useState(0);
-    const [openSize, setOpenSize] = useState(false);
     let params = useParams();
     const {type, id_sanpham} = params;
     useEffect(() => {
@@ -138,7 +193,7 @@ function DetailsTre_em({setCount, count}) {
     },[params]) 
     const handleChangeOptions = (state) =>{
         if(state === 2){
-            setOpenSize(true);
+            setDisplay(true);
         }else{
             setDisplay(state);
         } 
@@ -167,10 +222,10 @@ function DetailsTre_em({setCount, count}) {
                         <button onClick={() => handleChangeOptions(2)} className={display === 2 ? "active1" : ""}>Tham khảo size</button>
                     </div>
                     <div className="nav_content">
-                        {display === 0 ? (<Info data={data} setCountCart={setCount} countCart={count}/>) : display === 1 ? <Protect/> : ""}
+                        {display === 0 ? (<Info data={data} setCountCart={setCount} countCart={count}/>) : display === 1 ? <Protect/> : <SizeTableGeneral setDisplay={setDisplay}/>}
                     </div>
                 </Right>
-                {openSize && <Sizetable setOpenSize={setOpenSize}/>}
+                {/* {openSize && <Sizetable setOpenSize={setOpenSize}/>} */}
             </Wrap>
             <Title>Sản phẩm tương tự</Title>
             <Relate>

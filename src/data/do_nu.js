@@ -250,31 +250,31 @@ export const somi = [
         id: 41,
         name: "áo sơ mi trễ vai lụa nhân", 
         price: "340000", 
-        image: "sm5.jfif"
+        image: "sm1.png"
     },
     {
         id: 42,
         name: "áo trễ vai lụa nhân", 
         price: "140000",
-        image: "sm6.jfif"
+        image: "sm3.png"
     },
     {
         id: 43,
         name: "áo trễ vai lụa nhân", 
         price: "640000", 
-        image: "sm7.jfif"
+        image: "sm2.jfif"
     },
     {
         id: 44,
         name: "áo trễ vai lụa nhân", 
         price: "740000", 
-        image: "sm8.jfif"
+        image: "sm2.jfif"
     },
     {
         id: 45,
         name: "áo trễ vai lụa nhân", 
         price: "140000", 
-        image: "sm9.jfif"
+        image: "sm3.png"
     },
     {
         id: 46,
@@ -286,13 +286,13 @@ export const somi = [
         id: 47,
         name: "áo trễ vai lụa nhân", 
         price: "140000", 
-        image: "sm1.png"
+        image: "sm2.jfif"
     },
     {
         id: 48,
         name: "áo trễ vai lụa nhân", 
         price: "140000", 
-        image: "sm6.jfif"
+        image: "sm1.png"
     },
 ];
 export const vest = [
@@ -484,7 +484,7 @@ export const short = [
         id: 79,
         name : "quần vest ly tay liền",
         price: "1290000",
-        image: "l7.webp"
+        image: "l11.webp"
     },
     {
         id: 80,
@@ -540,7 +540,7 @@ export const trousers = [
         id: 88,
         name : "quần dài MS",
         price: "1210000",
-        image: "d4.webp"
+        image: "d10.webp"
     },
     {
         id: 89,

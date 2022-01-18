@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Trendy, Flourish18, Dream } from '../../data/collections';
 import Aos from "aos";
-import "aos/dist/aos.css"
+import "aos/dist/aos.css";
 const Wrap = styled.div`
     width: 100%;
-    @media screen and (max-width: 811px) {
-        margin-top: 30px;
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        margin-top: 10%;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 5%;
+        width: 100%;
     }
 `;
 
@@ -19,9 +23,6 @@ const Photo1 = styled.div`
         :last-child{
             margin-left: 2%;
         }
-    }
-    @media screen and (max-width: 811px) {
-        margin-bottom: 0px;
     }
 `;
 const Photo2 = styled.div`
@@ -69,7 +70,7 @@ function Content({ type }) {
     const [data, setData] = useState([])
     useEffect(() =>{
         Aos.init({duration: 1500})
-    })
+    }, []);
     useEffect(() => {
         switch (type) {
             case "Flourish18":
@@ -91,17 +92,17 @@ function Content({ type }) {
                             data.map((value) => {
                                 return (
                                     <>
-                                        <Photo1 data-aos="fade-up">
+                                        <Photo1 data-aos="fade-down">
                                             <img src={`/image/collections/${value.image1}`} alt=""/>
                                             <img src={`/image/collections/${value.image1a}`} alt="" />
                                         </Photo1>
-                                        <Photo2 data-aos="fade-up">
+                                        <Photo2 data-aos="fade-down">
                                             <img src={`/image/collections/${value.image2}`} alt=""/>
                                         </Photo2>
                                         <Photo3>
                                             <img src={`/image/collections/${value.image3}`} alt="" />
                                         </Photo3>
-                                        <Photo4 data-aos="fade-up">
+                                        <Photo4 data-aos="fade-down">
                                             <img src={`/image/collections/${value.image4}`} alt="" />
                                             <img src={`/image/collections/${value.image4a}`} alt="" />
                                             <img src={`/image/collections/${value.image4b}`} alt="" />
@@ -109,7 +110,7 @@ function Content({ type }) {
                                         <Photo5>
                                             <img src={`/image/collections/${value.image5}`} alt="" />
                                         </Photo5>
-                                        <Photo6 data-aos="fade-up">
+                                        <Photo6 data-aos="fade-down">
                                             <img src={`/image/collections/${value.image6}`} alt="" />
                                         </Photo6>
                                         <Photo7>

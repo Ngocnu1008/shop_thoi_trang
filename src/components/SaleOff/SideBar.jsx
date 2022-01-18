@@ -24,8 +24,16 @@ const Wrap = styled.div`
         text-decoration: none;
         color: black;
     }
-    @media screen and (max-width: 811px) {
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         display: none;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        margin: 75px 50px 0px 25px;
+        li {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        width: 30%;
     }
 `;
 function SideBar(props) {

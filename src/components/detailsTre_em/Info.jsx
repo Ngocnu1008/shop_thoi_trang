@@ -79,7 +79,7 @@ function Info({data, setCountCart, countCart}) {
             title: "Thêm vào giỏ hàng",
             text: "thành công",
             icon: "success",
-            confirmButton: "yes",
+            confirmButton: "Đồng ý",
         }).then((result) => {
             if(result.isConfirmed){
                 setRedirect(true);
@@ -104,7 +104,8 @@ function Info({data, setCountCart, countCart}) {
                 sizeDefault.map((value, index) => {
                     return (
                         <button onClick={() => {handleChangeSize(value)}} 
-                        className={size === value ? "active2" : ""} 
+                        className={size === value ? "active2" : ""} //ban đầu size là rỗng, sau đó bấm chọn size S thì setState lại size là S 
+                        //nên cái size đó chính là bằng cái value S bấm chọn thì nó active2
                         key={index}>{value}</button>
                     )
                 })};
@@ -114,8 +115,8 @@ function Info({data, setCountCart, countCart}) {
                     <button onClick={() => {handleChangeCount("+")}} disabled = {count === 10 ? true : false}> + </button>
                 </div>
                 <div className="buy">
-                    <button>BUY</button>
-                    <button onClick={handleAddToCard}>ADD TO CART</button>
+                    <button>MUA</button>
+                    <button onClick={handleAddToCard}>THÊM SẢN PHẨM</button>
                 </div>
             </Option>
         </Wrap>

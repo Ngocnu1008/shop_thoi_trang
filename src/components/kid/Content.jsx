@@ -9,10 +9,20 @@ import Notfound from '../nu/Notfound';
 const Wrap = styled.div`
     max-width: 80%;
     position: relative;
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        max-width: 100%;
+        margin-top: 40px;
+        margin-left: 5%; 
+        position: relative;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        position: relative;
+        max-width: 80%;
+    }
 `;
 const General = styled.div`
+    margin-top: 50px;
     h3{
-        margin-top: 50px;
         text-transform: uppercase;
         font-weight: bold;
     }
@@ -20,14 +30,15 @@ const General = styled.div`
     display: flex;
     .options {
         position: absolute;
-        left: 15%;
-        margin-top: 50px;
+        left: 20%;
+        // margin-top: 50px;
         display: flex;
         div{
             border: 1px solid gray;
             padding: 5px 3px;
             display: flex;
             justify-content: space-between;
+            background-color: white;
             align-items: center;
             margin: 0 10%;
             width: 250px;
@@ -42,6 +53,49 @@ const General = styled.div`
     div:hover{
         cursor: pointer;
     }
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        margin-top: 30px;
+        display: block;
+        h3{
+            font-size: 15px;
+        }
+        .options {
+            width: 305px;
+            margin: auto !important;
+            display: flex;
+            position: absolute;
+            left: 0px;
+            top: 70px;
+            div{
+                :last-child {
+                    margin-left: 25px;
+                }
+                padding: 5px 3px;
+                margin: 0 0%;
+                p {
+                    margin: 0 10px;
+                }
+                i{
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 80px;
+        h3 {
+            font-size: 15px;
+        }
+        .options {
+            position: absolute;
+            left: 31%;
+            top: 5%;
+            div {
+                margin: 0% 5%;
+                width: 200px;
+            }
+        }
+    }
 `;
 const Products = styled.div`
     display: flex;
@@ -49,6 +103,14 @@ const Products = styled.div`
     justify-content: space-between;
     width: 90%;
     margin-top: 25px;
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        margin-top: 20%;
+        width: 93%;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 5%;
+        width: 97%;
+    }
 `;
 const Card = styled.div`
     width: 23%;
@@ -69,6 +131,33 @@ const Card = styled.div`
     }
     h4 {
         font-weight: 400;
+    }
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        width: 47%;
+        h3{
+            font-size: 15px;
+            white-space: nowrap;//chữ chỉ trên 1 dòng và bị tràn bất kể độ dài ntn.
+            overflow: hidden;//chữ nhiều sẽ bị tràn bên phải làm xấu web
+            text-overflow: ellipsis;//hiển thị ... nếu chữ không hiển thị hết
+        }
+        h4{
+            font-size: 15px;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 30%;
+        img {
+            width: 100%;
+        }
+        h3 {
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 `;
 function Content({type}) {
@@ -157,7 +246,9 @@ function Content({type}) {
                     filter.map((value, index) => {
                         return (
                             <Card key= {index}>
-                                <img src={`/image/woman/top_collections/${value.image}`}/>
+                                <Link to={`/chi-tiet-hang-tre-em/${type}/${value.id}`}>
+                                    <img src={`/image/woman/top_collections/${value.image}`}/>
+                                </Link>
                                 <Link to={`/chi-tiet-hang-tre-em/${type}/${value.id}`}><h3>{value.name}</h3></Link>
                                 <h4>{value.price}</h4>
                                 <p>_new_</p>

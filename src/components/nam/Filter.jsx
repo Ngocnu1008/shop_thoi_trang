@@ -66,7 +66,7 @@ function Filter({data, setFilter}) {
             return Swal.fire({
                 title: "Vui lòng chọn giá sản phẩm", 
                 icon: "warning",
-                confirmButtonText: "yes",
+                confirmButtonText: "Đồng ý",
             });
        }
        if  
@@ -75,7 +75,7 @@ function Filter({data, setFilter}) {
            return Swal.fire({
                 title: "Vui lòng chọn đúng giá sản phẩm", 
                 icon: "warning",
-                confirmButtonText: "yes",
+                confirmButtonText: "Đồng ý",
           });
        }
        let after_filter = [];

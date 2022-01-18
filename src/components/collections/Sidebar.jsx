@@ -25,22 +25,19 @@ const Wrap = styled.div`
             background-color: black;
         }
     }  
-    @media screen and (max-width: 811px) {
-       width: 90%;
-       margin: auto;
-       a {
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px){
+        width: 90%;
+        margin: auto;
+        a {
            font-size: 7px;
-       }
+        }
+        margin-top: 30px!important;
     }
-    // @media screen and (max-width: 1023px) {
-    //     width: 50%;
-    //     margin: auto;
-    //     display: flex;
-    //     justify-content: space-between;
-    //     a {
-    //         font-size: 9px;
-    //     }
-    //  }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
+        margin-top: 80px !important;
+        width: 70%;
+        margin: auto;
+    }
 `;
 function Sidebar(props) {
     return (

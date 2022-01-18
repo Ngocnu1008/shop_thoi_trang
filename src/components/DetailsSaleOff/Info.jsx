@@ -86,10 +86,10 @@ function Info({setCountCart, countCart, data}) {
             localStorage.setItem("sanpham", JSON.stringify([info_product]));
         }
         Swal.fire({
-            title: "Thêm sản phẩm vào giở hàng",
+            title: "Thêm vào giỏ hàng",
             text: "thành công",
             icon: "success",
-            confirmButtonText: "yes",
+            confirmButtonText: "Đồng ý",
         }).then((result) =>{
             if(result.isConfirmed){
                 setRedirect(true);
@@ -127,8 +127,8 @@ function Info({setCountCart, countCart, data}) {
                     <button onClick={()=>{handleChangeCount("+")}}disabled={count === 10 ? true : false}>+</button>
                 </div>
                 <div className="buy">
-                    <button>BUY</button>
-                    <button onClick={handleAddToCart}>ADD TO CART</button>
+                    <button>MUA</button>
+                    <button onClick={handleAddToCart}>THÊM SẢN PHẨM</button>
                 </div>
             </Options>
         </Wrap>

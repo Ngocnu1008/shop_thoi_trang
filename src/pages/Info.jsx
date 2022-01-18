@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Swal from "sweetalert2";
 import { Redirect } from 'react-router';
@@ -44,6 +44,12 @@ const Wrap = styled.div`
             margin-right: 5px;
         }
         .confirmation{
+            display: flex;
+            justify-content: space-between;
+            .map {
+                width: 60%;
+                margin-top: 100px;
+            }
             .form{
                 margin-left: 20px;
             }
@@ -65,7 +71,38 @@ const Wrap = styled.div`
             
         }
     }
-    
+    @media screen and (min-device-width: 375px) and (max-device-width: 767px) {
+        width: 100%;
+        margin-top: 40px;
+        padding-top: 10px;
+        .customer_service {
+            .confirmation {
+                width: 100%;
+                display: block;
+                .map {
+                    width: 95%;
+                    margin: auto;
+                    margin-top: 40px;
+                }
+            }
+        }
+        h3 {
+            font-size: 14px;
+        }
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 90%;
+        margin: auto;
+        margin-top: 30px;
+        .customer_service {
+            .confirmation {
+                .map {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
 `;
 function validateEmail(email){
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -104,7 +141,10 @@ function Info(props) {
         }).then(() =>{
             setRedirect(true);
         })
-    }
+    };
+    useEffect(() => {
+        window.scroll(0,0);
+    })
     return (
         <Wrap>
             {redirect && <Redirect to="/"/>}
@@ -152,34 +192,42 @@ function Info(props) {
                     </div>
                 </div>
                 <div className="confirmation">
-                    <p className="main_p"><i class="fa fa-envelope" aria-hidden="true"></i>
-                    EMAIL
-                    </p>
-                    <div className="form">
-                    <form action="#" autoComplete="off">
-                            <label htmlFor="name" >Họ và tên:</label>
-                            <br/>
-                            <input type="text" name="name" placeholder="Họ và tên..." value={value.name} onChange={handleChangeValue} />
-                            <br/>
-                            <label htmlFor="phone">Điện thoại:</label>
-                            <br/>
-                            <input type="number" name="phone" placeholder="Điện thoại..." value={value.phone} onChange={handleChangeValue}/>
-                            <br/>
-                            <label htmlFor="email">Email:</label>
-                            <br/>
-                            <input type="text" name="email" placeholder="Email..." value={value.email} onChange={handleChangeValue}/>
-                            <br/>
-                            {errorEmail && <p className="warning">Vui lòng điền đúng địa chỉ email</p>}
-                            <label htmlFor="topic">Chủ đề:</label>
-                            <br/>
-                            <input type="text" name="topic" placeholder="Chủ đề..." value={value.topic} onChange={handleChangeValue}/>
-                            <br/>
-                            <label htmlFor="content">Nội dung:</label>
-                            <br/>
-                            <input type="text" name="content" value={value.content} onChange={handleChangeValue} className="comment"/>
-                            <br/>
-                            <button onClick={handleSubmit}>GỬI</button>
-                        </form>
+                    <div className="content">
+                        <p className="main_p"><i class="fa fa-envelope" aria-hidden="true"></i>
+                        EMAIL
+                        </p>
+                        <div className="form">
+                        <form action="#" autoComplete="off">
+                                <label htmlFor="name" >Họ và tên:</label>
+                                <br/>
+                                <input type="text" name="name" placeholder="Họ và tên..." value={value.name} onChange={handleChangeValue} />
+                                <br/>
+                                <label htmlFor="phone">Điện thoại:</label>
+                                <br/>
+                                <input type="number" name="phone" placeholder="Điện thoại..." value={value.phone} onChange={handleChangeValue}/>
+                                <br/>
+                                <label htmlFor="email">Email:</label>
+                                <br/>
+                                <input type="text" name="email" placeholder="Email..." value={value.email} onChange={handleChangeValue}/>
+                                <br/>
+                                {errorEmail && <p className="warning">Vui lòng điền đúng địa chỉ email</p>}
+                                <label htmlFor="topic">Chủ đề:</label>
+                                <br/>
+                                <input type="text" name="topic" placeholder="Chủ đề..." value={value.topic} onChange={handleChangeValue}/>
+                                <br/>
+                                <label htmlFor="content">Nội dung:</label>
+                                <br/>
+                                <input type="text" name="content" value={value.content} onChange={handleChangeValue} className="comment"/>
+                                <br/>
+                                <button onClick={handleSubmit}>GỬI</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.776344884068!2d105.80375051476285!3d21.001600586013165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad7ff997a981%3A0x786e42250043fb56!2zMjRUMiBIYXB1bGljbyBWxakgVHLhu41uZyBQaOG7pW5n!5e0!3m2!1svi!2suk!4v1634460919608!5m2!1svi!2suk" 
+                        style={{"width": "100%", "height": "90%",  "border": "0", "loading": "lazy"}}
+                        title="map"/>
                     </div>
                 </div>
             </div>
