@@ -24,6 +24,10 @@ const Wrap = styled.div`
         width: 90%;
         margin: auto;
     }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        width: 90%;
+        margin: auto;
+    }
 `;
 const Container = styled.div`
     @media screen and (min-device-width: 375px) and (max-device-width: 767px) {
@@ -39,6 +43,18 @@ const Container = styled.div`
             margin-top: 20px;
         }
         margin-top: 70px;
+    }
+    @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+        h5 {
+            :first-child {
+                margin-top: 70px;
+            }
+        }
+        .image {
+            img {
+                width: 100%;
+            }
+        }
     }
 `;
 function DetailsNews(props) {
