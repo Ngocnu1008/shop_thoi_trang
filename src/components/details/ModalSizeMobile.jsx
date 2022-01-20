@@ -10,7 +10,6 @@ const Background = styled.div`
     height: 100vh;
     align-item: center;
     background-color: gray;
-    // opacity: 0.3;
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +26,8 @@ const Content = styled.div`
 const Header = styled.div`
     width: 90%;
     margin: auto;
-    padding: 20px 0px 30px 0px;
+    margin-top: 60px !important; 
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     h3 {
@@ -61,7 +61,7 @@ function ModalSizeMobile({setDisplay}) {
                         <button onClick={handleCloseSizeTable}> x </button>
                     </Header>
                     <Body>
-                        <table>
+                        <table> 
                             <tbody>
                                 <tr>
                                     <td colSpan={"7"} style={{"width": "500px"}}>SIZE ÁO</td>
@@ -171,7 +171,7 @@ function ModalSizeMobile({setDisplay}) {
                                     <td colSpan={"7"} style={{"width": "500px"}}>SIZE GIÀY</td>
                                 </tr>
                                 <tr>
-                                    <td style={{"width": "500px"}} colSpan={"7"}>
+                                    <td style={{"width": "500px", "height": "100px"}} colSpan={"7"}>
                                         <img src="https://pubcdn.ivymoda.com/images/chan_medium.jpg" alt=""/>
                                     </td>
                                 </tr>

@@ -10,6 +10,7 @@ const BigWrap = styled.div`
     @media screen and (min-device-width: 375px) and (max-device-width: 767px) {
         display: block;
         width: 100%;
+        margin-top: 50px;
 
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {

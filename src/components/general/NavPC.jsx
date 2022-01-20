@@ -82,7 +82,7 @@ const Content = styled.div`
         }
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-        width: 98%;
+        width: 95%;
         display: plex;
         .navigation {
             width: 65%;

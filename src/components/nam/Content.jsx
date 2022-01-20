@@ -16,7 +16,7 @@ const Wrap = styled.div`
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         position: relative;
-        max-width: 80%;
+        max-width: 76%;
     }
 `;
 const General = styled.div`
@@ -62,9 +62,9 @@ const General = styled.div`
             width: 305px;
             margin: auto !important;
             display: flex;
-            position: absolute;
+            position: fixed;
             left: 0px;
-            top: 70px;
+            top: 40px;
             div{
                 :last-child {
                     margin-left: 25px;

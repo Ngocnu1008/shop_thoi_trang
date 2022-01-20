@@ -38,6 +38,7 @@ const Container = styled.div`
             font-size: 20px;
             margin-top: 20px;
         }
+        margin-top: 70px;
     }
 `;
 function DetailsNews(props) {

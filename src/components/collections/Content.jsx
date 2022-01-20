@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 const Wrap = styled.div`
     width: 100%;
     @media screen and (min-device-width: 375px) and (max-device-width: 767px){
-        margin-top: 10%;
+        margin-top: 10% !important;
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
         margin-top: 5%;

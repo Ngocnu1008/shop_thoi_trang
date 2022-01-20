@@ -41,12 +41,12 @@ const Wrap = styled.div`
         margin-top: 20px;
         input{
             padding: 5px 5px;
-            margin-right: 10px;
+            margin-right: 10px; 
         }
     }
     border: 1px solid gray;
     padding: 20px 20px;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 811px) {
         width: 95%;
         margin-top: 70px;
     }
@@ -78,7 +78,7 @@ function Filter({setFilter, data}) {
         }
         let after_filter = [];
         for (let i = 0; i < data.length; i++){
-            if (parseInt(price.min) < data[i].price && parseInt(price.max) > data[i].price){
+            if (parseInt(price.min) <= data[i].price && parseInt(price.max) >= data[i].price){
                 after_filter.push(data[i]);
             }
         }

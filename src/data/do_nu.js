@@ -77,73 +77,73 @@ export const shirt = [
     {
         id: 13,
         name: "áo trễ vai lụa nhân", 
-        price: "140000",
+        price: "1140000",
         image: "1.png"
     },
     {
         id: 14,
         name: "áo dập ly tay liền", 
-        price: "140000",
+        price: "1240000",
         image: "2.jfif"
     },
     {
         id: 15,
         name: "áo kiểu tay liền ms", 
-        price: "140000",
+        price: "1200000",
         image: "3.jfif"
     },
     {
         id: 16,
         name: "áo xốp tay", 
-        price: "140000",
+        price: "900000",
         image: "4.jfif"
     },
     {
         id: 17,
         name: "áo trễ vai lụa nhân", 
-        price: "140000", 
+        price: "780000", 
         image: "5.jfif"
     },
     {
         id: 18,
         name: "áo trễ vai lụa nhân", 
-        price: "140000",
+        price: "1240000",
         image: "6.png"
     },
     {
         id: 19,
         name: "áo trễ vai lụa nhân", 
-        price: "140000", 
+        price: "950000", 
         image: "7.jfif"
     },
     {
         id: 20,
         name: "áo trễ vai lụa nhân", 
-        price: "140000", 
+        price: "1140000", 
         image: "8.jfif"
     },
     {
         id: 21,
         name: "áo trễ vai lụa nhân", 
-        price: "140000", 
+        price: "1490000", 
         image: "1.png"
     },
     {
         id: 22,
         name: "áo trễ vai lụa nhân", 
-        price: "140000",
+        price: "1150000",
         image: "2.jfif"
     },
     {
         id: 23,
         name: "áo trễ vai lụa nhân", 
-        price: "140000", 
+        price: "1700000", 
         image: "3.jfif"
     },
     {
         id: 24,
         name: "áo trễ vai lụa nhân", 
-        price: "140000", 
+        price: "890000", 
         image: "4.jfif"
     },
 ];

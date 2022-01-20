@@ -29,9 +29,9 @@ const General = styled.div`
     color: ${props => props.theme.color};
     display: flex;
     .options {
-        position: absolute;
-        left: 20%;
-        // margin-top: 50px;
+        position: fixed;
+        left: 0px;
+        top: 40px;
         display: flex;
         div{
             border: 1px solid gray;

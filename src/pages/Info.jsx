@@ -93,7 +93,7 @@ const Wrap = styled.div`
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         width: 90%;
         margin: auto;
-        margin-top: 30px;
+        margin-top: 4px !important;
         .customer_service {
             .confirmation {
                 .map {

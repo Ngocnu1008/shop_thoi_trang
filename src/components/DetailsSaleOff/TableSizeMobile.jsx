@@ -10,14 +10,13 @@ const Background = styled.div`
     height: 100vh;
     align-item: center;
     background-color: gray;
-    // opacity: 0.3;
     position: fixed;
     top: 0;
     left: 0;
 `;
 const Content = styled.div`
     width: 95%;
-    border-radius: 10px;
+    border-radius: 10px; 
     margin-top: 20px !important;
     margin: auto !important;
     background: white;
@@ -27,7 +26,8 @@ const Content = styled.div`
 const Header = styled.div`
     width: 90%;
     margin: auto;
-    padding: 20px 0px 30px 0px;
+    padding: 10px;
+    margin-top: 60px !important;
     display: flex;
     justify-content: space-between;
     h3 {

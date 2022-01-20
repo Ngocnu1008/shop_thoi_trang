@@ -6,16 +6,17 @@ const Wrap = styled.div`
     width: 35%;
     margin: auto;
     margin-bottom: 4%;
-    p{
-        display: inline;
-        margin-left: 5px;
-    }
+    display: flex;
+    justify-content: space-between;
     a{
         text-decoration: none;
         color: black;
         padding: 7px 5px;
         border: 1px solid black;
         margin-left: 30px;
+        :first-child {
+            margin-left: 0px;
+        }
         font-size: 14px;
         text-transform: uppercase;
         font-weight: 600;
@@ -26,7 +27,7 @@ const Wrap = styled.div`
         }
     }  
     @media screen and (min-device-width: 375px) and (max-device-width: 767px){
-        width: 90%;
+        width: 100%;
         margin: auto;
         a {
            font-size: 7px;

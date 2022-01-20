@@ -83,11 +83,12 @@ function Filter({setFilter, data}) {
         }
         let after_filter = [];
         for (let i = 0; i < data.length; i++){
-            if(data[i].price > parseInt(price.min) && data[i].price <= parseInt(price.max)){
+            if(data[i].price >= parseInt(price.min) && data[i].price <= parseInt(price.max)){
                 after_filter.push(data[i]);
             }
         }
         setFilter(after_filter);
+        console.log(after_filter);
     };
     return (
         <>

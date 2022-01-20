@@ -7,6 +7,7 @@ import Sidebar from "../components/collections/Sidebar"
 const Wrap = styled.div`
 @media screen and (min-device-width: 375px) and (max-device-width: 767px){
     width: 90%;
+    text-align: center;
     margin: auto;
     margin-top: 70px;
 }
