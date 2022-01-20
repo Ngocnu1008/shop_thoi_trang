@@ -7,6 +7,7 @@ const BigWrap = styled.div`
     @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         max-width: 100%;
         margin: auto;
+        margin-top: 40px !important;
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         max-width: 80%;
@@ -21,7 +22,7 @@ const Wrap = styled.div`
     @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         width: 90%;
         margin: auto;
-        margin-top: 40px !important;
+        margin-top: 20px !important;
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
         margin-top: 5%;

@@ -47,13 +47,13 @@ const Content = styled.div`
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         width: 97%;
-        margin-top: -200px;
+        margin-top: -150px;
         padding-left: -10px;
         position: fixed;
         top: 67%;
         left: 50%;
         overflow-y: scroll;
-        height: 1050px;
+        height: 900px;
     }
 `;
 const Background = styled.div`
@@ -71,7 +71,7 @@ const SizeClothes = styled.div`
     box-sizing: border-box;
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         table {
-            width: 750px !important;
+            width: 698px !important;
             margin: auto;
             tbody tr td {
                 :first-child {
@@ -91,7 +91,7 @@ const SizeShoes = styled.div`
     box-sizing: border-box;
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         table {
-            width: 750px !important;
+            width: 698px !important;
             margin: auto;
         }
     }

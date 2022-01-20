@@ -17,10 +17,11 @@ const Background = styled.div`
 const Content = styled.div`
     width: 95%;
     border-radius: 10px;
-    margin-top: 20px !important;
-    margin: auto !important;
+    margin-top: 75px !important;
+    margin: auto;
     background: white;
     color: black;
+    padding-bottom: 20px;
 
 `;
 const Header = styled.div`
@@ -169,11 +170,6 @@ function SizeReferenceMoblie({setDisplay}) {
                                 </tr>
                                 <tr>
                                     <td colSpan={"7"} style={{"width": "500px"}}>SIZE GIÀY</td>
-                                </tr>
-                                <tr>
-                                    <td style={{"width": "500px"}} colSpan={"7"}>
-                                        <img src="https://pubcdn.ivymoda.com/images/chan_medium.jpg" alt=""/>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td rowSpan={"3"}>Tên gọi</td>

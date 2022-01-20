@@ -16,11 +16,12 @@ const Background = styled.div`
 `;
 const Content = styled.div`
     width: 95%;
-    border-radius: 10px; 
-    margin-top: 20px !important;
-    margin: auto !important;
+    border-radius: 10px;
+    margin-top: 75px !important;
+    margin: auto;
     background: white;
     color: black;
+    padding-bottom: 20px;
 
 `;
 const Header = styled.div`

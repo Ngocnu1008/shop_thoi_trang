@@ -62,9 +62,9 @@ const General = styled.div`
             width: 305px;
             margin: auto !important;
             display: flex;
-            position: fixed;
+            position: absolute;
             left: 0px;
-            top: 40px;
+            top: 70px;
             div{
                 :last-child {
                     margin-left: 25px;
