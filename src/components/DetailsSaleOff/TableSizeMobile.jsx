@@ -172,11 +172,6 @@ function TableSizeMobile({setDisplay}) {
                                     <td colSpan={"7"} style={{"width": "500px"}}>SIZE GIÀY</td>
                                 </tr>
                                 <tr>
-                                    <td style={{"width": "500px"}} colSpan={"7"}>
-                                        <img src="https://pubcdn.ivymoda.com/images/chan_medium.jpg" alt=""/>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td rowSpan={"3"}>Tên gọi</td>
                                     <td colSpan={"6"}>Size</td>
                                 </tr>
