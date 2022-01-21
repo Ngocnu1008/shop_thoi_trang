@@ -120,7 +120,7 @@ const Right = styled.div`
         }
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-        width: 20%;
+        width: 25%;
         margin-top: 5.8%;
         font-size: 10px;
         .freeship {
