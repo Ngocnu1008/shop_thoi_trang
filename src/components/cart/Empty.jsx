@@ -18,6 +18,7 @@ const Wrap = styled.div`
         padding-top: 20px;
         h3 {
             font-size: 10px;
+            margin-top: 40px;
         }
         a {
             font-size: 9px;

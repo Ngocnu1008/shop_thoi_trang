@@ -51,7 +51,7 @@ const Wrap = styled.div`
         color: black;
     }
 `;
-function NavMoblie({count, check_login}) {
+function NavMoblie({count, check_register}) {
     const [displayContent, setDisplayContent] = useState(false);
     
     const handleDisplayContent = () => {
@@ -72,14 +72,14 @@ function NavMoblie({count, check_login}) {
                     <li>
                         <i className="fa fa-paw" aria-hidden="true"></i>
                     </li>
-                    <Link to ={check_login ? "/account" : "/login"}>
+                    <Link to ={check_register ? "/login" : "/register"}> 
                     <li>
-                        <i className="fa fa-user" aria-hidden="true"></i>
+                        <i className="fa fa-user" aria-hidden="true" setDisplayContent={setDisplayContent}></i>
                     </li>
                     </Link>
                     <Link to="/cart">
                     <li>
-                        <i className="fa fa-shopping-bag" aria-hidden="true"></i>
+                        <i className="fa fa-shopping-bag" aria-hidden="true" setDisplayContent={setDisplayContent}></i>
                         <strong>{count > 0 ? count : ""}</strong>
                     </li>
                     </Link>
