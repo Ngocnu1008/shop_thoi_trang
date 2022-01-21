@@ -46,7 +46,7 @@ const Content = styled.div`
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         width: 95%;
-        margin-top: -150px;
+        margin-top: -135px;
         position: fixed;
         top: 67%;
         left: 50%;
