@@ -19,6 +19,7 @@ const Content = styled.div`
     border-radius: 10px;
     margin-top: 75px !important;
     margin: auto;
+    z-index: 3;
     background: white;
     color: black;
     padding-bottom: 20px;

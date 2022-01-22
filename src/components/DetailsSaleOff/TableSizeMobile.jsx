@@ -17,6 +17,7 @@ const Background = styled.div`
 const Content = styled.div`
     width: 95%;
     border-radius: 10px;
+    z-index: 3;
     margin-top: 75px !important;
     margin: auto;
     background: white;
