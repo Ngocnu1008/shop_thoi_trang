@@ -16,7 +16,7 @@ const Wrap = styled.div`
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         position: relative;
-        max-width: 80%;
+        max-width: 76%;
     }
 `;
 const General = styled.div` 
@@ -83,9 +83,9 @@ const General = styled.div`
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
         margin-top: 80px;
         .options {
-            position: absolute;
-            left: 23%;
-            top: 5%;
+            position: fixed;
+            left: 39%;
+            top: 10%;
             div {
                 margin: 0% 5%;
                 width: 200px;

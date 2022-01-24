@@ -21,7 +21,7 @@ const Sort = styled.div`
             color: red;
         }
         transition: smooth;
-        }
+        } 
     }
     @media screen and (min-device-width: 375px) and (max-device-width: 811px){
         width: 141px !important;

@@ -6,6 +6,7 @@ import Info from '../components/detailsNam/Infor';
 import Protection from '../components/detailsNam/protection';
 import SizeReferenceGeneral from '../components/detailsNam/SizeReferenceGeneral';
 import Loading from '../components/Loading';
+import { Link} from "react-router-dom";
 const Wrap = styled.div`
     padding-top: 50px;
     width: 70%;
@@ -103,6 +104,11 @@ const Below = styled.div`
     justify-content: space-between;
     overflow: hidden;
     flex-wrap: wrap;
+    a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
 `;
 const Card1 = styled.div`
     width: 19%;
@@ -157,57 +163,57 @@ function DetailsNam({setCount, count}) {
             case "newpolo":
                 var details = newpolo.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(newpolo);
+                setRelate(newpolo.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "polo":
                 var details = polo.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(polo);
+                setRelate(polo.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "somi":
                 var details = somi.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(somi);
+                setRelate(somi.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "thun":
                 var details = thun.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(thun);
+                setRelate(thun.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "jeans":
                 var details = jeans.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(jeans);
+                setRelate(jeans.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "long_trousers":
                 var details = long_trousers.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(long_trousers);
+                setRelate(long_trousers.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "short":
                 var details = short.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(short);
+                setRelate(short.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "suit":
                 var details = suit.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(suit);
+                setRelate(suit.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "shoes":
                 var details = shoes.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(shoes);
+                setRelate(shoes.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             case "accessory":
                 var details = accessory.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(accessory);
+                setRelate(accessory.filter((value) => value.id !== parseInt(id_sanpham)));
                 break;
             default:
                 var details = news2.filter((value) => value.id === parseInt(id_sanpham));
                 setData(details);
-                setRelate(news2);
+                setRelate(news2.filter((value) => value.id !== parseInt(id_sanpham)));
         }
     }, [params]);
     useEffect(() => {
@@ -249,11 +255,11 @@ function DetailsNam({setCount, count}) {
             <Below>
                 {relate && 
                 relate.map((value, index) => {
-                    if(index < 4){
+                    if(0 < index && index < 5){
                         return (
-                            <Card1 key={value}>
-                                <img src={`/image/woman/top_collections/${value.image}`} alt=""/>
-                                <h2>{value.name}</h2>
+                            <Card1 key={index}>
+                                 <Link to ={`/chi-tiet-hang-nam/${type}/${value.id}`}><img src={`/image/woman/top_collections/${value.image}`} alt=""/></Link>
+                                 <Link to ={`/chi-tiet-hang-nam/${type}/${value.id}`}><h2>{value.name}</h2></Link>
                                 <h3>{value.price}<sup>đ</sup></h3>
                             </Card1>
                         )

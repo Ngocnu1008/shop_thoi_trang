@@ -17,7 +17,7 @@ const Wrap = styled.div`
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
         position: relative;
-        max-width: 80%;
+        max-width: 76%;
     }
 `;
 const General = styled.div`
@@ -29,9 +29,9 @@ const General = styled.div`
     color: ${props => props.theme.color};
     display: flex;
     .options {
-        position: fixed;
-        left: 0px;
-        top: 40px;
+        position: absolute;
+        left: 232px;
+        top: 52px;
         display: flex;
         div{
             border: 1px solid gray;
@@ -87,9 +87,9 @@ const General = styled.div`
             font-size: 15px;
         }
         .options {
-            position: absolute;
-            left: 31%;
-            top: 5%;
+            position: fixed;
+            left: 45%;
+            top: 10%;
             div {
                 margin: 0% 5%;
                 width: 200px;
@@ -102,6 +102,7 @@ const Products = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     width: 90%;
+    z-index: 3;
     margin-top: 25px;
     @media screen and (min-device-width: 375px) and (max-device-width: 767px){
         margin-top: 20%;
@@ -243,7 +244,7 @@ function Content({type}) {
             <Products>
                 {filter && filter.length > 0 
                 ? (
-                    filter.map((value, index) => {
+                    filter.map((value, index) => { 
                         return (
                             <Card key= {index}>
                                 <Link to={`/chi-tiet-hang-tre-em/${type}/${value.id}`}>

@@ -18,7 +18,7 @@ const Sort = styled.div`
         background: none;
         border: none;
         &:hover{
-            color: red;
+            color: red; 
         }
         transition: smooth;
         }

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { Redirect } from 'react-router';
 const Wrap = styled.div`
     padding: 50px 20px;
-    width: 80%;
+    width: 90%;
     margin: auto;
     h3 {
         font-size: 16px;
@@ -79,7 +79,7 @@ const Wrap = styled.div`
             .confirmation {
                 width: 100%;
                 display: block;
-                .map {
+                .map { 
                     width: 95%;
                     margin: auto;
                     margin-top: 40px;

@@ -72,7 +72,7 @@ const General = styled.div`
                 padding: 5px 3px;
                 margin: 0 0%;
                 p {
-                    margin: 0 10px;
+                    margin: 0 10px; 
                 }
                 i{
                     margin-right: 10px;
@@ -83,9 +83,9 @@ const General = styled.div`
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px){
         margin-top: 80px;
         .options {
-            position: absolute;
-            left: 23%;
-            top: 5%;
+            position: fixed;
+            left: 39%;
+            top: 10%;
             div {
                 margin: 0% 5%;
                 width: 200px;

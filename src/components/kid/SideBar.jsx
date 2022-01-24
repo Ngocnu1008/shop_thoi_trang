@@ -15,7 +15,7 @@ const Wrap = styled.div`
         }
     }
     li {
-        margin-left: 10%;
+        margin-left: 15%;
         list-style: none;
         cursor: pointer;
         padding: 1% 0%;
@@ -37,7 +37,7 @@ const Wrap = styled.div`
         display: none;
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-        margin: 80px 10px 0px 2px;
+        margin: 80px 10px 0px 0px;
         li {
             font-size: 12px;
             margin-bottom: 5px;

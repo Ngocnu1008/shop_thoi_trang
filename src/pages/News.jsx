@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import Aos from 'aos';
 import "aos/dist/aos.css";
 const Wrap = styled.div`
-    width: 80%;
+    width: 90%;
     margin: auto;
     margin-top: 70px !important;
     h2{

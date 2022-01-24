@@ -9,7 +9,8 @@ const BigWrap = styled.div`
     justify-content: space-between;
     @media screen and (min-device-width: 375px) and (max-device-width: 767px) {
         display: block;
-        width: 100%;
+        width: 95%;
+        margin: auto;
         margin-top: 50px;
 
     }
@@ -22,7 +23,7 @@ const Wrap = styled.div`
     width: 60%;
     margin-left: 10%;
     margin-top: 5%;
-    
+    text-align: center;
     @media screen and (min-device-width: 375px) and (max-device-width: 767px) {
         thead tr td {
             font-size: 8px !important;
@@ -37,7 +38,8 @@ const Wrap = styled.div`
         }
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-        width: 80%;
+        width: 70%;
+        margin-left: 3%;
         thead tr td {
             font-size: 12px !important;
         }
@@ -120,7 +122,7 @@ const Right = styled.div`
         }
     }
     @media screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-        width: 25%;
+        width: 20%;
         margin-top: 5.8%;
         font-size: 10px;
         .freeship {
@@ -170,7 +172,7 @@ function Cart({setCount}) {
             <Wrap>
                 <thead>
                     <tr>
-                        <td style={{"width":"200px", "height": "30px", "font-size": "14px" , "font-weight": "500"}}>SẢN PHẨM</td>
+                        <td style={{"width":"300px", "height": "30px", "font-size": "14px" , "font-weight": "500"}}>SẢN PHẨM</td>
                         <td style={{"width": "350px", "font-size": "14px", "font-weight": "500"}}>TÊN SẢN PHẨM</td>
                         <td style={{"width": "50px", "font-size": "14px", "font-weight": "500"}}>SIZE</td>
                         <td style={{"width": "100px", "font-size": "14px", "font-weight": "500"}}>SỐ LƯỢNG</td>
@@ -182,7 +184,7 @@ function Cart({setCount}) {
                     {product.map((value, index) =>{
                         return (
                             <Card key={index}>
-                                <td style={{"width":"200px", "height": "30px", "font-size": "14px" }}><img src={`/image/woman/top_collections/${value.image}`} alt=""/></td>
+                                <td style={{"width":"300px", "height": "30px", "font-size": "14px" }}><img src={`/image/woman/top_collections/${value.image}`} alt=""/></td>
                                 <td style={{"width": "200px", "font-size": "14px"}}>{value.name}</td>
                                 <td style={{"width": "200px", "font-size": "14px"}}><p>{value.size}</p></td>
                                 <td style={{"width": "200px", "font-size": "14px"}}>{value.count}</td>
