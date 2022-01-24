@@ -65,7 +65,7 @@ function NavMoblie({count, check_register}) {
                 <p onClick={handleDisplayContent}>Danh mục</p>
             </div>  
             <div className="logo">
-                <Link to="/"><img src="https://pubcdn.ivymoda.com/images/logo.png" alt=""/> </Link>                   
+                <Link to="/"><img src="https://pubcdn.ivymoda.com/images/logo.png" alt="" onClick={() => {setDisplayContent(false)}}/> </Link>                   
             </div>
             <div className="nav_right">
                 <ul>
