@@ -49,7 +49,7 @@ const Card = styled.div`
     }
     h2 {
       font-size: 18px;
-      margin: 15% 0% 2% 0%;
+      margin-top: 7%;
     }
     h3 {
       font-size: 17px;
@@ -102,7 +102,7 @@ const Right = styled.div`
   @media screen and (max-width: 1023px) {
     margin-top: 10% !important;
   }
-`; 
+`;
 const Relate = styled.div`
   padding-top: 20px;
   width: 80%;
@@ -115,7 +115,7 @@ const Relate = styled.div`
     text-decoration: none;
     color: black;
     font-weight: bold;
-}
+  }
 `;
 const Card1 = styled.div`
   width: 19%;
@@ -123,25 +123,19 @@ const Card1 = styled.div`
     width: 100%;
   }
   text-align: center;
-  h2 {
+  h3 {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 500;
-    opacity: 0.8;
     margin-top: 2px;
-  }
-  h3 {
-    font-size: 14px;
-    margin-top: 2px;
-    font-weight: 400;
+    :first-child {
+      margin-top: 15px;
+    }
   }
   @media screen and (max-width: 811px) {
     width: 100%;
     margin: auto;
     margin-top: 30px;
-    h2 {
-      margin-top: 20px;
-    }
     h3 {
       font-size: 16px;
     }
@@ -149,7 +143,7 @@ const Card1 = styled.div`
 `;
 const Title = styled.p`
   width: 80%;
-  margin-top: 70px !important;
+  margin-top: 30px !important;
   margin: auto;
   text-transform: uppercase;
   font-weight: bold;
@@ -217,7 +211,9 @@ function Details({ setCount, count }) {
           (value) => value.id === parseInt(id_sanpham)
         );
         setData(details);
-        setRelate(trousers.filter((value) => value.id !== parseInt(id_sanpham)));
+        setRelate(
+          trousers.filter((value) => value.id !== parseInt(id_sanpham))
+        );
         break;
       case "dam":
         var details = dam.filter((value) => value.id === parseInt(id_sanpham));
@@ -229,14 +225,18 @@ function Details({ setCount, count }) {
           (value) => value.id === parseInt(id_sanpham)
         );
         setData(details);
-        setRelate(dam_thun.filter((value) => value.id !== parseInt(id_sanpham)));
+        setRelate(
+          dam_thun.filter((value) => value.id !== parseInt(id_sanpham))
+        );
         break;
       case "dam_mexi":
         var details = dam_mexi.filter(
           (value) => value.id === parseInt(id_sanpham)
         );
         setData(details);
-        setRelate(dam_mexi.filter((value) => value.id !== parseInt(id_sanpham)));
+        setRelate(
+          dam_mexi.filter((value) => value.id !== parseInt(id_sanpham))
+        );
         break;
       default:
         var details = news1.filter(
@@ -318,7 +318,14 @@ function Details({ setCount, count }) {
                         />
                       </Link>
                       <Link to={`/chi-tiet-hang-nu/${type}/${value.id}`}>
-                        <h2>{value.name}</h2>
+                        <h3
+                          style={{
+                            textTransform: "uppercase",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {value.name}
+                        </h3>
                       </Link>
                       <h3>
                         {value.price}

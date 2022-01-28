@@ -60,7 +60,7 @@ function NavMoblie({count, check_register}) {
     return (
         <Wrap>
             <div className="bar">
-                <p><i class="fa fa-bars" aria-hidden="true" onClick={handleDisplayContent}></i></p>
+                <p><i className="fa fa-bars" aria-hidden="true" onClick={handleDisplayContent}></i></p>
                 {displayContent ? <NavMobileContent setDisplayContent={setDisplayContent}/> : ""}
                 <p onClick={handleDisplayContent}>Danh mục</p>
             </div>  
