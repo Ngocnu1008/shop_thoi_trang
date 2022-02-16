@@ -64,7 +64,7 @@ function App() {
                   <Women/>
                 </Route>
                 <Route path="/hang-nam/:type" exact>
-                  <Man/>
+                  <Man/> 
                 </Route>
                 <Route path="/hang-tre-em/:type">
                   <Kid/>

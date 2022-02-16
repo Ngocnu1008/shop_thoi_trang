@@ -50,7 +50,7 @@ const Wrap = styled.div`
         margin: auto;
         padding-top: 20px;
     }
-`;
+`; 
 function Register(props) {
     const [value, setValue] = useState({
         name: "", 
